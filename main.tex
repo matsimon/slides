@@ -33,7 +33,7 @@
 
 %\setbeamercolor{background canvas}{bg=\includegraphics[width=\textwidth]{./pics/wolf.png}}
 
-\title{Assets management with~FusionInventory~and~GLPI}
+\title{Assets management with~FusionInventory}
 \author{\href{http://www.FusionInventory.org}{FusionInventory.org}}
 \subject{Assets management with FusionInventory and GLPI}
 \keywords{Assets management, Inventory, FusionInventory, GLPI}
@@ -85,10 +85,10 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
     \begin{block}{Free software enthusiast}
         \begin{itemize}
+        \item FusionInventory project co-leader
         \item Debian Developer
         \item Perl Monger
         \item Former OCS Inventory developer
-        \item FusionInventory project co-leader
         \item Work at TECLIB', Paris, France
         \end{itemize}
     \end{block}
@@ -517,17 +517,373 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
     \begin{block}{different options}
         \begin{itemize}
-            \item distribution packages \\
+            \item \textbf{distribution packages} \\
             \small{Debian, Fedora, EPEL, Ubuntu, Mageia, ...}
-            \item Windows installer \\
+            \item \textbf{Windows installer} \\
             \small{GPO, psexec, ...}
-            \item static prebuilt packages, untar and run \\
+            \item \textbf{static prebuilt packages}, untar and run \\
             \small{62 differents system so far}
             \item tarball or CPAN installation
         \end{itemize}
     \end{block}
 \end{frame}
 
+
+
+
+\section{Network Discovery}
+
+\begin{frame}
+    \frametitle{Network discovery}
+
+    \begin{block}{FusionInventory can do fast network inventory using}
+    \begin{itemize}
+      \item NMAP 
+      \item NetBios
+      \item SNMP query
+    \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Network discovery}
+
+    \begin{block}{During this step, we identify}
+    \begin{itemize}
+        \item Network information
+        \item Windows domain information
+        \item SNMP device name (sysdesc)
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Remote SNMP Inventory}
+%\begin{frame}
+%    \frametitle{Remote SNMP inventory}
+%
+%    \begin{block}{Network devices}
+%        \begin{itemize}
+%            \item serial number, firmware, ...
+%            \item ports mapping
+%        \end{itemize}
+%    \end{block}
+%
+%    \begin{block}{Network printers}
+%        \begin{itemize}
+%            \item serial number, firmware, ...
+%            \item cartridge ink level
+%            \item page counter
+%        \end{itemize}
+%    \end{block}
+%\end{frame}
+
+
+\begin{frame}
+    \frametitle{SNMP: History}
+
+%    \begin{center}
+%    \includegraphics[height=4.0cm]{pics/napoleon.jpg}
+%    \end{center}
+
+    \begin{block}{History of SNMP}
+    \begin{itemize}
+    \item Standard protocole \\
+    \small{First RFC: 1988}
+    \item Created for monitoring devices
+    \item Tree different version 1, 2c, 3 (Encryption)
+    \item OID: an address per information
+    \item MIB: definition of OID addresses
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{SNMP: For what?}
+
+    \begin{block}{How we use SNMP?}
+    \begin{itemize}
+    \item Identify devices remotly (switch, router, printer...)
+    \item Inventory devices using SNMP
+    \item Get all important information
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{SNMP: The MIB nightmare?}
+
+    \begin{block}{All people say us: MIB exist use it!}
+    Yes but...
+    \pause
+    \begin{itemize}
+    \item Most of the time hard to find
+    \pause
+    \item Not always free (like in FreeSoftware)
+    \pause
+    \item Important information may be missing
+    \pause
+    \item Worst! They are sometime wrong depending on device model/firmware
+    \end{itemize}
+    \end{block}
+
+%    \begin{block}{With our SNMP models, we are sure device is well supported!}
+%    \end{block}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{SNMP: How do we unfuck this mess?}
+
+    \begin{block}{We create our own MIB like files}
+    \begin{itemize}
+    \item XML files 
+    \item Relation between OID and information \\
+        \small{e.g: serial number is oid .1.3...}
+    \item Simple or dynamic OID \\
+        \small{a serial number or name of each port}
+    \end{itemize}
+    \end{block}
+
+%    \begin{block}{How we make them?}
+%    \begin{itemize}
+%    \item We use a complete snmpwalk of each device + model + firmware
+%    \item Our tool permit to preselect and select OID 
+%    \item This tool will create and export models 
+%    \end{itemize}
+%    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{SNMP: What we collect (1/3)}
+
+    \begin{block}{Get switch information}
+    \begin{itemize}
+    \item Serial number
+    \item Manufacturer
+    \item Model
+    \item Firmware
+    \item Mac address    
+    \item etc
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{SNMP: What we collect (2/3)}
+
+    \begin{block}{Get ports}
+    \begin{itemize}
+    \item Name
+    \item Network speed
+    \item Port status (enabled / disabled)
+    \item Errors input \& output
+    \item VLAN
+    \item Trunk (tagged)
+    \item Active connection
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{SNMP: What we collect (3/3)}
+
+    \begin{block}{Get connections on each port}
+    \begin{itemize}
+    \item Mac addresses (one or many on some case)
+    \item LLDP \& CDP neighbors (dialog \& information between switches)
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{SNMP: What results for switch?}
+
+    \begin{center}
+    \includegraphics[width=11.7cm]{./pics/switch_ports.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{SNMP: Printer specification (1/2)}
+
+    \begin{block}{Get printer information}
+    \begin{itemize}
+    \item Serial number
+    \item Manufacturer
+    \item Model
+    \item Firmware
+    \item Memory
+    \item Mac address
+    \item etc
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{SNMP: Printer specification (2/2)}
+
+    \begin{block}{What more important information?}
+    \begin{itemize}
+    \item Get cartridges ink level
+    \item Page counter
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{SNMP: What results for printer?}
+
+    \begin{center}
+    \includegraphics[width=11.7cm]{./pics/printer_graph.png}
+    \end{center}
+\end{frame}
+
+\section{Wake On Lan}
+
+\begin{frame}
+    \frametitle{Wake On Lan}
+
+    \begin{block}{What?}
+    \begin{itemize}
+        \item awake computer.
+    \end{itemize}
+    \end{block}
+
+\pause
+
+    \begin{block}{How?}
+        Send the Magic Packet with agent
+    \begin{itemize}
+	\item Raw ethernet packet (only from linux computer)
+	\item else, UDP packet
+    \end{itemize}
+    \end{block}
+
+\pause
+
+    \begin{block}{Benefit}
+    \begin{itemize}
+        \item no firewall issue
+        \item nor special routage rule needed
+    \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Wake On Lan : Example (1/2)}
+
+    \begin{block}{What we have}
+    \begin{itemize}
+    \item A remote site
+    \item 50 computers all under windows
+    \end{itemize}
+    \end{block}
+
+
+    \begin{block}{What we want}
+    \begin{itemize}
+    \item start all at same time, at 2:00 am for maintenance operation
+    \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Wake On Lan : Example (2/2)}
+
+%    \begin{block}{Preparation (do it once)}
+%    \begin{itemize}
+%    \item Create a Virtual Machine on one of these computers
+%    \item Install a Linux distribution on this (Debian, Fedora...)
+%    \item Install a FusionInventory agent
+%    \item It's ready ;)
+%    \end{itemize}
+%    \end{block}
+
+    \begin{block}{Into GLPI with task management}
+    \begin{itemize}
+    \item Define computers to awake
+    \item Schedule it at 2:00AM
+    \item That's all
+    \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\section{Software Deployment}
+
+\begin{frame}
+    \frametitle{Software Deployment: OCS Inventory}
+
+    \begin{block}{What?}
+    OCS software deployment support featuring peer to peer support
+    \end{block}
+
+    \begin{block}{Benefit}
+    \begin{itemize}
+        \item no proxy nor mirror
+        \item bandwidth-friendly
+        \item OS independent
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Software Deployment: FusionInventory}
+
+    \begin{block}{What?}
+    FusionInventory deployment support featuring peer to peer support
+    \end{block}
+
+    \begin{block}{Benefit}
+    \begin{itemize}
+        \item no proxy nor mirror
+        \item bandwidth-friendly
+        \item OS independent
+    \end{itemize}
+    \end{block}
+
+\WorkInProgress
+\end{frame}
+
+
+\section{vCenter/ESX/ESXi remote inventory}
+
+
+\begin{frame}
+    \frametitle{Wake on LAN}
+
+    \begin{block}{What?}
+    \begin{itemize}
+        \item awake computer.
+    \end{itemize}
+    \end{block}
+
+\pause
+
+    \begin{block}{How?}
+    send the Magic Packet from an agent in the same network
+    \begin{itemize}
+        \item send raw ethernet packet
+        \item UDP packet still possible
+    \end{itemize}
+    \end{block}
+
+\pause
+
+    \begin{block}{Benefit}
+    \begin{itemize}
+        \item no firewall issue
+        \item nor special routage rule needed
+    \end{itemize}
+    \end{block}
+
+\end{frame}
 
 
 
@@ -930,350 +1286,6 @@ This section presents information collected in FusionInventory inventory.
 \end{description}
 \end{frame}
 
-\section{Network Discovery}
-
-\begin{frame}
-    \frametitle{Network discovery}
-
-    \begin{block}{FusionInventory can do fast network inventory using}
-    \begin{itemize}
-      \item nmap
-      \item netbios
-      \item SNMP query
-    \end{itemize}
-    \end{block}
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{Network discovery}
-
-    \begin{block}{During this step, we identify}
-    \begin{itemize}
-        \item network stack
-        \item Windows domain information
-        \item SNMP device name (sysdesc)
-    \end{itemize}
-    \end{block}
-\end{frame}
-
-\section{Remote SNMP Inventory}
-\begin{frame}
-    \frametitle{Remote SNMP inventory}
-
-    \begin{block}{Network devices}
-        \begin{itemize}
-            \item serial number, firmware, ...
-            \item ports mapping
-        \end{itemize}
-    \end{block}
-
-    \begin{block}{Network printers}
-        \begin{itemize}
-            \item serial number, firmware, ...
-            \item cartridge ink level
-            \item page counter
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-
-
-
-\begin{frame}
-    \frametitle{SNMP: Goal}
-
-    \begin{block}{What is SNMP?}
-    \begin{itemize}
-    \item Identify devices remotly (switch, router, printer...)
-    \item Inventory devices by SNMP
-    \item Get all important informations
-    \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{SNMP: History}
-
-%    \begin{center}
-%    \includegraphics[height=4.0cm]{pics/napoleon.jpg}
-%    \end{center}
-
-    \begin{block}{History of SNMP}
-    \begin{itemize}
-    \item Created in 1992
-    \item Created for monitoring devices
-    \item Some RFC are writen to implement it with standard
-    \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{SNMP: Why create own models?}
-
-    \begin{block}{All people say us: MIB exist use it!}
-    Yes but...
-    \begin{itemize}
-    \item Difficult to find (not for all of course)
-    \item MIB not complete
-    \item OID not always same on device (depend of device model and firmware)
-    \end{itemize}
-    \end{block}
-
-    \begin{block}{With our SNMP models, we are sure device is well supported!}
-    \end{block}
-    
-\end{frame}
-
-\begin{frame}
-    \frametitle{SNMP: What is these models?}
-
-    \begin{block}{We define informations}
-    \begin{itemize}
-    \item Relation OID with information (like serial number is oid .1.3...)
-    \item Simple or dynamic OID (a serial number or name of each port)
-    \end{itemize}
-    \end{block}
-
-    \begin{block}{How we make them?}
-    \begin{itemize}
-    \item We use a complete snmpwalk of each device + model + firmware
-    \item Our tool permit to preselect and select OID 
-    \item This tool will create and export models 
-    \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{SNMP: Switch specification (1/3)}
-
-    \begin{block}{Get switch informations}
-    \begin{itemize}
-    \item Serial number
-    \item Manufacturer
-    \item Model
-    \item Firmware
-    \item Mac address    
-    \item etc
-    \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{SNMP: Switch specification (2/3)}
-
-    \begin{block}{Get ports}
-    \begin{itemize}
-    \item Name
-    \item Network speed
-    \item Port status (enabled / disabled)
-    \item Errors input \& output
-    \item VLAN
-    \item Trunk (tagged)
-    \item Active connection
-    \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{SNMP: Switch specification (3/3)}
-
-    \begin{block}{Get connections on each port}
-    \begin{itemize}
-    \item Mac addresses (one or many on some case)
-    \item LLDP \& CDP neighbors (dialog \& informations between switches)
-    \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{SNMP: What results for switch?}
-
-    \begin{center}
-    \includegraphics[width=11.7cm]{./pics/switch_ports.png}
-    \end{center}
-\end{frame}
-
-\begin{frame}
-    \frametitle{SNMP: Printer specification (1/2)}
-
-    \begin{block}{Get printer informations}
-    \begin{itemize}
-    \item Serial number
-    \item Manufacturer
-    \item Model
-    \item Firmware
-    \item Memory
-    \item Mac address
-    \item etc
-    \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{SNMP: Printer specification (2/2)}
-
-    \begin{block}{What more important informations?}
-    \begin{itemize}
-    \item Get cartridges ink level
-    \item Page counter
-    \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{SNMP: What results for printer?}
-
-    \begin{center}
-    \includegraphics[width=11.7cm]{./pics/printer_graph.png}
-    \end{center}
-\end{frame}
-
-\section{Wake On Lan}
-
-\begin{frame}
-    \frametitle{Wake On Lan}
-
-    \begin{block}{What?}
-    \begin{itemize}
-        \item awake computer.
-    \end{itemize}
-    \end{block}
-
-\pause
-
-    \begin{block}{How?}
-        Send the Magic Packet with agent
-    \begin{itemize}
-	\item Raw ethernet packet (only from linux computer)
-	\item else, UDP packet
-    \end{itemize}
-    \end{block}
-
-\pause
-
-    \begin{block}{Benefit}
-    \begin{itemize}
-        \item no firewall issue
-        \item nor special routage rule needed
-    \end{itemize}
-    \end{block}
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{Wake On Lan : Example (1/2)}
-
-    \begin{block}{What we have}
-    \begin{itemize}
-    \item A remote site
-    \item 50 computers all under windows
-    \end{itemize}
-    \end{block}
-
-
-    \begin{block}{What we want}
-    \begin{itemize}
-    \item start all at same time, at 2:00 am for maintenance operation
-    \end{itemize}
-    \end{block}
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{Wake On Lan : Example (2/2)}
-
-%    \begin{block}{Preparation (do it once)}
-%    \begin{itemize}
-%    \item Create a Virtual Machine on one of these computers
-%    \item Install a Linux distribution on this (Debian, Fedora...)
-%    \item Install a FusionInventory agent
-%    \item It's ready ;)
-%    \end{itemize}
-%    \end{block}
-
-    \begin{block}{Into GLPI with task management}
-    \begin{itemize}
-    \item Define computers to awake
-    \item Schedule it at 2:00AM
-    \item That's all
-    \end{itemize}
-    \end{block}
-
-\end{frame}
-
-\section{Software Deployment}
-
-\begin{frame}
-    \frametitle{Software Deployment: OCS Inventory}
-
-    \begin{block}{What?}
-    OCS software deployment support featuring peer to peer support
-    \end{block}
-
-    \begin{block}{Benefit}
-    \begin{itemize}
-        \item no proxy nor mirror
-        \item bandwidth-friendly
-        \item OS independent
-    \end{itemize}
-    \end{block}
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{Software Deployment: FusionInventory}
-
-    \begin{block}{What?}
-    FusionInventory deployment support featuring peer to peer support
-    \end{block}
-
-    \begin{block}{Benefit}
-    \begin{itemize}
-        \item no proxy nor mirror
-        \item bandwidth-friendly
-        \item OS independent
-    \end{itemize}
-    \end{block}
-
-\WorkInProgress
-\end{frame}
-
-
-\section{vCenter/ESX/ESXi remote inventory}
-
-
-\begin{frame}
-    \frametitle{Wake on LAN}
-
-    \begin{block}{What?}
-    \begin{itemize}
-        \item awake computer.
-    \end{itemize}
-    \end{block}
-
-\pause
-
-    \begin{block}{How?}
-    send the Magic Packet from an agent in the same network
-    \begin{itemize}
-        \item send raw ethernet packet
-        \item UDP packet still possible
-    \end{itemize}
-    \end{block}
-
-\pause
-
-    \begin{block}{Benefit}
-    \begin{itemize}
-        \item no firewall issue
-        \item nor special routage rule needed
-    \end{itemize}
-    \end{block}
-
-\end{frame}
-
-
 \section{What else?}
 
 
@@ -1389,6 +1401,8 @@ This section presents information collected in FusionInventory inventory.
 %\end{block}
 
 %\end{frame}
+
+
 
 \begin{frame}
     \frametitle{Demo}
