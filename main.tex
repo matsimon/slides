@@ -631,6 +631,30 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
 %    \begin{block}{With our SNMP models, we are sure device is well supported!}
 %    \end{block}
+\end{frame}
+\begin{frame}
+    \frametitle{SNMP: An example}
+
+ \begin{columns}
+ \begin{column}{0.35\textwidth}
+         \includegraphics[height=7.5cm]{./pics/cisco.jpg}
+ \end{column}
+ \begin{column}{0.65\textwidth}
+    \begin{block}{Example: Cisco 6500 firmware}
+    12.2(33)SXI\textbf{2a} (02-Sep-09 01:00)
+    \begin{itemize}
+    \item Serial OID: .1.3.6.1.2.1.47.1.1.1.1.11.\textbf{1}
+    \end{itemize}
+    12.2(33)SXI\textbf{3} (27-Oct-09 11:12)
+    \begin{itemize}
+    \item Serial OID: .1.3.6.1.2.1.47.1.1.1.1.11.\textbf{2}$\Longleftarrow$ WTF?!
+    \end{itemize}
+    \end{block}
+
+ \end{column}
+\end{columns}
+
+
     
 \end{frame}
 
@@ -647,14 +671,6 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
     \end{itemize}
     \end{block}
 
-    \begin{block}{Example}
-    Cisco 6500 firmware 12.2(33)SXI2a (02-Sep-09 01:00)
-    \begin{itemize}
-    \item Serial OID: .1.3.6.1.2.1.47.1.1.1.1.11.1
-    Cisco 6500 firmware 12.2(33)SXI3 (27-Oct-09 11:12)
-    \begin{itemize}
-    \item Serial OID: .1.3.6.1.2.1.47.1.1.1.1.11.2
-    \end{block}
 
 %    \begin{block}{How we make them?}
 %    \begin{itemize}
@@ -666,24 +682,25 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 \end{frame}
 
 \begin{frame}
-    \frametitle{SNMP: What we collect (1/3)}
+    \frametitle{SNMP: Network switch (1/3)}
 
-    \begin{block}{Get switch information}
+    \begin{block}{Network switch}
     \begin{itemize}
     \item Serial number
     \item Manufacturer
     \item Model
     \item Firmware
     \item Mac address    
+    \item CPU/RAM load
     \item etc
     \end{itemize}
     \end{block}
 \end{frame}
 
 \begin{frame}
-    \frametitle{SNMP: What we collect (2/3)}
+    \frametitle{SNMP: Network switch (2/3)}
 
-    \begin{block}{Get ports}
+    \begin{block}{Switch port}
     \begin{itemize}
     \item Name
     \item Network speed
@@ -697,12 +714,14 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 \end{frame}
 
 \begin{frame}
-    \frametitle{SNMP: What we collect (3/3)}
+    \frametitle{SNMP: Network switch (3/3)}
 
-    \begin{block}{Get connections on each port}
+    \begin{block}{Connections per port}
     \begin{itemize}
-    \item Mac addresses (one or many on some case)
-    \item LLDP \& CDP neighbors (dialog \& information between switches)
+    \item Mac addresses \\ 
+    one or many on some case
+    \item LLDP and CDP neighborhood \\
+        dialog and information between switches
     \end{itemize}
     \end{block}
 \end{frame}
@@ -716,7 +735,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 \end{frame}
 
 \begin{frame}
-    \frametitle{SNMP: Printer specification (1/2)}
+    \frametitle{SNMP: Printer (1/2)}
 
     \begin{block}{Get printer information}
     \begin{itemize}
@@ -732,9 +751,9 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 \end{frame}
 
 \begin{frame}
-    \frametitle{SNMP: Printer specification (2/2)}
+    \frametitle{SNMP: Printer (2/2)}
 
-    \begin{block}{What more important information?}
+    \begin{block}{Additional important information}
     \begin{itemize}
     \item Get cartridges ink level
     \item Page counter
@@ -743,7 +762,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 \end{frame}
 
 \begin{frame}
-    \frametitle{SNMP: What results for printer?}
+    \frametitle{SNMP: What result for printer?}
 
     \begin{center}
     \includegraphics[width=11.7cm]{./pics/printer_graph.png}
@@ -783,7 +802,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Wake On Lan : Example (1/2)}
+    \frametitle{Wake On Lan: Example (1/2)}
 
     \begin{block}{What we have}
     \begin{itemize}
@@ -802,7 +821,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Wake On Lan : Example (2/2)}
+    \frametitle{Wake On Lan: Example (2/2)}
 
 %    \begin{block}{Preparation (do it once)}
 %    \begin{itemize}
@@ -829,7 +848,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
     \frametitle{Software Deployment: OCS Inventory}
 
     \begin{block}{What?}
-    OCS software deployment support featuring peer to peer support
+    OCS software deployment featuring peer to peer support
     \end{block}
 
     \begin{block}{Benefit}
@@ -844,7 +863,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
 \begin{frame}
     \frametitle{Software Deployment: FusionInventory}
-
+TODO
     \begin{block}{What?}
     FusionInventory deployment support featuring peer to peer support
     \end{block}
@@ -865,32 +884,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
 
 \begin{frame}
-    \frametitle{Wake on LAN}
-
-    \begin{block}{What?}
-    \begin{itemize}
-        \item awake computer.
-    \end{itemize}
-    \end{block}
-
-\pause
-
-    \begin{block}{How?}
-    send the Magic Packet from an agent in the same network
-    \begin{itemize}
-        \item send raw ethernet packet
-        \item UDP packet still possible
-    \end{itemize}
-    \end{block}
-
-\pause
-
-    \begin{block}{Benefit}
-    \begin{itemize}
-        \item no firewall issue
-        \item nor special routage rule needed
-    \end{itemize}
-    \end{block}
+TODO
 
 \end{frame}
 
@@ -898,25 +892,156 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
 \section{Inventory}
 
+
+\section{What else?}
+
+
+\begin{frame}
+    \frametitle{What else? (1/2)}
+
+    \begin{center}
+    \includegraphics[height=4.0cm]{pics/whatelse.jpg}
+    \end{center}
+
+    \pause
+
+    \begin{block}{agent developement is very active}
+        \begin{itemize}
+            \item code clean up\\
+            {\small larger test-suite, modern perl}
+            \item architecture changes\\
+            {\small event-driven programming, various executable}
+            \item smaller memory footprint
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{What else? (2/2)}
+
+    \begin{center}
+    \includegraphics[height=4.0cm]{pics/whatelse.jpg}
+    \end{center}
+
+    \begin{block}{In test-suite we trust!}
+        \begin{itemize}
+            \item strong effort done during the last year \\
+            \small{36 800 tests on the GLPI plugin and up to 2 000 on the agent}
+            \item with even stronger benefit so far
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Our roadmap}
+
+    What we are about to release
+    \begin{itemize}
+    \item FusionInventory for GLPI 0.78: beta planned for this month
+    \item ESX inventory: before june
+    \item Android Agent
+    \end{itemize}
+
+    Work in progress
+    \begin{itemize}
+    \item Software deployment
+    \item OCS/XML → REST/JSON transition
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{FusionInventory for GLPI 0.78: Action scheduler 1/2}
+    \includegraphics[height=7.5cm]{pics/fusion_task.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{FusionInventory for GLPI 0.78: Action scheduler 2/2}
+    \includegraphics[height=7.5cm]{pics/walid_task_1.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{FusionInventory for GLPI 0.78: Printer graph}
+    \includegraphics[height=7.5cm]{pics/walid_printer_2.png}
+\end{frame}
+%
+
+
+
+\begin{frame}
+\frametitle{ESX 1/2}
+
+
+   \includegraphics[height=5cm]{./pics/esx1.png}
+\end{frame}
+%
+\begin{frame}
+\frametitle{ESX 2/2}
+
+
+   \includegraphics[height=5cm]{./pics/esx2.png}
+\end{frame}
+
+%\begin{frame}
+%\frametitle{OCS/XML → REST/JSON transition}
+%
+%\begin{block}{Why}
+%    \begin{itemize}
+%    \item non standard protocol
+%    \begin{itemize}
+%    \item unhard to extend: parameters send once whatever you do
+%    \item odd XML structure to parse
+%    \item hard to extend
+%    \end{itemize}
+%    \item more modern alternative nowaday
+%    \begin{itemize}
+%    \item REST
+%    \item JSON
+%    \end{itemize}
+%    \end{itemize}
+%\end{block}
+%
+% \begin{block}{How this will be achieved}
+%    \begin{itemize}
+%    \item Long transition with dual system
+%    \item keep OCS inventory compatibiliy
+%    \end{itemize}
+%\end{block}
+
+%\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Demo}
+
+   \includegraphics[height=5cm]{./pics/fusinvglpi.png}
+
+    \bf{Demo time!}
+\end{frame}
+
+
+\section{Questions}
+
+\begin{frame}
+    \frametitle{Questions?}
+
+%    \bf{Questions?}
+    \begin{center}
+
+    \includegraphics[height=5cm]{./pics/question.pdf}
+
+    \end{center}
+%    \includegraphics[height=7.5cm]{./pics/ask.jpg}
+
+\end{frame}
+
+
+\section{Annexe}
 \begin{frame}
 
     \frametitle{The inventory content}
 
 This section presents information collected in FusionInventory inventory.
-
-%    \begin{description}
-%        \item[BIOS] serial numbers, UUID, ... local
-%        \item[Memory] memory slot, size, ...
-%        \item[CPU] frequency, name, manufacturer, ...
-%        \item[Software] apt-get, yum, Windows software, BSD pkg, ...
-%        \item[Harddrive] serial number, manufacturer, ...
-%        \item[Partition] ...
-%        \item[Virtual Machine] libvirt, xen, ...
-%        \item[USB devices] phone, USB key, ...
-%        \item[...] \href{http://search.cpan.org/dist/FusionInventory-Agent/lib/FusionInventory/Agent/XML/Query/Inventory.pm}{see the list on Internet.}
-%    \end{description}
-
-%    It's easy to add new information. Just ask us or submit patches!
 
 \end{frame}
 
@@ -926,8 +1051,6 @@ This section presents information collected in FusionInventory inventory.
       \item[USERID] The current user list, '/' is the delimiter. This field is deprecated, you should use the USERS section instead.
       \item[OSVERSION]
       \item[OSCOMMENTS] Service Pack on Windows, kernel build date on Linux
-      \item[CHECKSUM] Deprecated, OCS only.
-      \item[PROCESSORT] Deprecated, OCS only.
       \item[NAME]
       \item[PROCESSORS] The processor speed in MHz, this field is deprecated, see CPUS instead.
       \item[SWAP] The swap space in MB.
@@ -1295,148 +1418,6 @@ This section presents information collected in FusionInventory inventory.
 \end{description}
 \end{frame}
 
-\section{What else?}
-
-
-\begin{frame}
-    \frametitle{What else? (1/2)}
-
-    \begin{center}
-    \includegraphics[height=4.0cm]{pics/whatelse.jpg}
-    \end{center}
-
-    \pause
-
-    \begin{block}{agent developement is very active}
-        \begin{itemize}
-            \item code clean up\\
-            {\small larger test-suite, modern perl}
-            \item architecture changes\\
-            {\small event-driven programming, various executable}
-            \item smaller memory footprint
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{What else? (2/2)}
-
-    \begin{center}
-    \includegraphics[height=4.0cm]{pics/whatelse.jpg}
-    \end{center}
-
-    \begin{block}{In test-suite we trust!}
-        \begin{itemize}
-            \item strong effort done during the last year \\
-            \small{36 800 tests on the GLPI plugin and up to 2 000 on the agent}
-            \item with even stronger benefit so far
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Our roadmap}
-
-    What we are about to release
-    \begin{itemize}
-    \item FusionInventory for GLPI 0.78: beta planned for this month
-    \item ESX inventory: before june
-    \item Android Agent
-    \end{itemize}
-
-    Work in progress
-    \begin{itemize}
-    \item Software deployment
-    \item OCS/XML → REST/JSON transition
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{FusionInventory for GLPI 0.78: Action scheduler 1/2}
-    \includegraphics[height=7.5cm]{pics/fusion_task.pdf}
-\end{frame}
-
-\begin{frame}
-\frametitle{FusionInventory for GLPI 0.78: Action scheduler 2/2}
-    \includegraphics[height=7.5cm]{pics/walid_task_1.png}
-\end{frame}
-
-\begin{frame}
-\frametitle{FusionInventory for GLPI 0.78: Printer graph}
-    \includegraphics[height=7.5cm]{pics/walid_printer_2.png}
-\end{frame}
-%
-
-
-
-\begin{frame}
-\frametitle{ESX 1/2}
-
-
-   \includegraphics[height=5cm]{./pics/esx1.png}
-\end{frame}
-%
-\begin{frame}
-\frametitle{ESX 2/2}
-
-
-   \includegraphics[height=5cm]{./pics/esx2.png}
-\end{frame}
-
-%\begin{frame}
-%\frametitle{OCS/XML → REST/JSON transition}
-%
-%\begin{block}{Why}
-%    \begin{itemize}
-%    \item non standard protocol
-%    \begin{itemize}
-%    \item unhard to extend: parameters send once whatever you do
-%    \item odd XML structure to parse
-%    \item hard to extend
-%    \end{itemize}
-%    \item more modern alternative nowaday
-%    \begin{itemize}
-%    \item REST
-%    \item JSON
-%    \end{itemize}
-%    \end{itemize}
-%\end{block}
-%
-% \begin{block}{How this will be achieved}
-%    \begin{itemize}
-%    \item Long transition with dual system
-%    \item keep OCS inventory compatibiliy
-%    \end{itemize}
-%\end{block}
-
-%\end{frame}
-
-
-
-\begin{frame}
-    \frametitle{Demo}
-
-   \includegraphics[height=5cm]{./pics/fusinvglpi.png}
-
-    \bf{Demo time!}
-\end{frame}
-
-
-\section{Questions}
-
-\begin{frame}
-    \frametitle{Questions?}
-
-%    \bf{Questions?}
-    \begin{center}
-
-    \includegraphics[height=5cm]{./pics/question.pdf}
-
-    \end{center}
-%    \includegraphics[height=7.5cm]{./pics/ask.jpg}
-
-\end{frame}
-
 
 
 \begin{frame}
@@ -1447,6 +1428,7 @@ This section presents information collected in FusionInventory inventory.
             \item Windows \url{http://www.flickr.com/photos/aeu04117/430338509/sizes/z/in/photostream/}
             \item AIX \url{http://www.flickr.com/photos/pchow98/5115638572/}
             \item MacOSX \url{http://www.flickr.com/photos/adriannier/5555516312/sizes/l/in/photostream/}
+            \item Cisco 6500 \url{http://www.flickr.com/photos/joachim\_s\_mueller/3084164647/sizes/z/in/photostream/}
         \end{itemize}
     \end{block}
 \end{frame}
