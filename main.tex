@@ -12,6 +12,7 @@
 \usepackage{lmodern}
 \usepackage{newcent}
 \usepackage{amsmath}
+\usepackage{listings}
 % math extension - one probably wants to use symbols like '[' (written as '$[$')
 \usepackage{ucs}
 %\usepackage[utf8]{inputenc}
@@ -884,7 +885,56 @@ TODO
 
 
 \begin{frame}
-TODO
+    \frametitle{vCenter/ESX/ESXi}
+
+    \begin{block}{The issue}
+    You can run an agent on these machine.
+    \end{block}
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{vCenter/ESX/ESXi}
+
+    \begin{block}{The solution}
+FusionInventory is able to connect to the machine using SOAP to get:
+        \begin{itemize}
+                \item Hardware inventory 
+                \item VirtualMachine list
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{vCenter}
+vCenter are an interface in front of a group of ESX/ESXi.
+        \begin{itemize}
+                \item Hardware inventory 
+                \item ESX/ESXi inventories 
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{vCenter/ESX/ESXi: command line}
+
+\begin{lstlisting}
+fusioninventory-esx --host myesx --user foo \ 
+  --password bar --directory /tmp
+\end{lstlisting}
+
+Then you can push the generated files in the server:
+\begin{lstlisting}
+fusioninventory-injector -v --file /tmp/*.ocs \ 
+  -u https://glpi/plugins/fusioninventory/
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{vCenter/ESX/ESXi: from GLPI}
+
+You can drive the ESX inventory feature directly
+from GLPI.
 
 \end{frame}
 
