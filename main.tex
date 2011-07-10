@@ -104,7 +104,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
     \end{center}
 
     \begin{itemize}
-    \item about 10 developers involved in the project
+    \item about 10 people directly involved in the project
     \item active community of contributors
     \item 2 companies involved
     \end{itemize}
@@ -142,7 +142,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
     \end{itemize}
 \end{frame}
 
-\section{Overview}
+\section{Global Overview}
 
 \begin{frame}
     \frametitle{First, some vocabulary!}
@@ -220,7 +220,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
         \item Inventory
         \item Network discovery
-        \item Remote inventory
+        \item Remote SNMP inventory
         \item Software deployment
         \item vCenter/ESX/ESXi remote inventory
         \item Wake On Lan
@@ -247,11 +247,13 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Software deployment}
+    \frametitle{Discution opened with}
 
-    \begin{block}{What?}
-    OCS software deployment support featuring peer to peer support
-    \end{block}
+    \begin{itemize}
+    \item FusionDirectory 
+    \item Mandriva's Pulse2
+    \item OTRS ITSM 
+    \end{itemize}
 \end{frame}
 
 %\subsection{Use cases}
@@ -933,24 +935,29 @@ This section presents information collected in FusionInventory inventory.
 \begin{frame}
     \frametitle{Network discovery}
 
-    FusionInventory can do basic network inventory in GLPI
-    \begin{block}{Seek}
+    \begin{block}{FusionInventory can do fast network inventory using}
     \begin{itemize}
       \item nmap
       \item netbios
       \item SNMP query
     \end{itemize}
     \end{block}
-    \begin{block}{Identify}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Network discovery}
+
+    \begin{block}{During this step, we identify}
     \begin{itemize}
         \item network stack
         \item Windows domain information
-        \item sysdesc comparaison
+        \item SNMP device name (sysdesc)
     \end{itemize}
     \end{block}
 \end{frame}
 
-\section{SNMP}
+\section{Remote SNMP Inventory}
 \begin{frame}
     \frametitle{Remote SNMP inventory}
 
@@ -976,7 +983,7 @@ This section presents information collected in FusionInventory inventory.
 \begin{frame}
     \frametitle{SNMP: Goal}
 
-    \begin{block}{SNMP? what is this?}
+    \begin{block}{What is SNMP?}
     \begin{itemize}
     \item Identify devices remotly (switch, router, printer...)
     \item Inventory devices by SNMP
@@ -988,9 +995,9 @@ This section presents information collected in FusionInventory inventory.
 \begin{frame}
     \frametitle{SNMP: History}
 
-    \begin{center}
-    \includegraphics[height=4.0cm]{pics/napoleon.jpg}
-    \end{center}
+%    \begin{center}
+%    \includegraphics[height=4.0cm]{pics/napoleon.jpg}
+%    \end{center}
 
     \begin{block}{History of SNMP}
     \begin{itemize}
@@ -1004,7 +1011,7 @@ This section presents information collected in FusionInventory inventory.
 \begin{frame}
     \frametitle{SNMP: Why create own models?}
 
-    \begin{block}{All people say us : MIB exist use it!}
+    \begin{block}{All people say us: MIB exist use it!}
     Yes but...
     \begin{itemize}
     \item Difficult to find (not for all of course)
@@ -1013,7 +1020,7 @@ This section presents information collected in FusionInventory inventory.
     \end{itemize}
     \end{block}
 
-    \begin{block}{With our SNMP models, we are sure device is very nice supported!}
+    \begin{block}{With our SNMP models, we are sure device is well supported!}
     \end{block}
     
 \end{frame}
@@ -1167,7 +1174,6 @@ This section presents information collected in FusionInventory inventory.
 
     \begin{block}{What we want}
     \begin{itemize}
-    \item Use Raw ethernet packet because works better
     \item start all at same time, at 2:00 am for maintenance operation
     \end{itemize}
     \end{block}
@@ -1177,20 +1183,19 @@ This section presents information collected in FusionInventory inventory.
 \begin{frame}
     \frametitle{Wake On Lan : Example (2/2)}
 
-    \begin{block}{Preparation (to do only one time)}
-    \begin{itemize}
-    \item Create a Virtual Machine on one of these computers
-    \item Install a Linux distribution on this (Debian, Fedora...)
-    \item Install a FusionInventory agent
-    \item It's ready ;)
-    \end{itemize}
-    \end{block}
+%    \begin{block}{Preparation (do it once)}
+%    \begin{itemize}
+%    \item Create a Virtual Machine on one of these computers
+%    \item Install a Linux distribution on this (Debian, Fedora...)
+%    \item Install a FusionInventory agent
+%    \item It's ready ;)
+%    \end{itemize}
+%    \end{block}
 
     \begin{block}{Into GLPI with task management}
     \begin{itemize}
-    \item Define computers to wake
-    \item Define agent (so our agent on the Linux VM)
-    \item Planify it at 2:00 am
+    \item Define computers to awake
+    \item Schedule it at 2:00AM
     \item That's all
     \end{itemize}
     \end{block}
