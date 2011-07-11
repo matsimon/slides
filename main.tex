@@ -864,22 +864,47 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
 \begin{frame}
     \frametitle{Software Deployment: FusionInventory}
-TODO
+
     \begin{block}{What?}
-    FusionInventory deployment support featuring peer to peer support
+    FusionInventory deployment
     \end{block}
 
-    \begin{block}{Benefit}
+    \begin{block}{Why a new software deployment?}
     \begin{itemize}
-        \item no proxy nor mirror
-        \item bandwidth-friendly
-        \item OS independent
+        \item Same user interface
+        \item GLPI profile
+        \item Secure: HTTPS and sha512
     \end{itemize}
     \end{block}
 
 \WorkInProgress
 \end{frame}
 
+
+\begin{frame}
+    \frametitle{Software Deployment: FusionInventory}
+
+    \includegraphics[height=4.0cm]{pics/tasks.jpg}
+
+\WorkInProgress
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Software Deployment: FusionInventory}
+
+    \includegraphics[height=4.0cm]{pics/groups.jpg}
+
+\WorkInProgress
+\end{frame}
+
+\begin{frame}
+    \frametitle{Software Deployment: FusionInventory}
+
+    \includegraphics[height=4.0cm]{pics/packages.jpg}
+
+\WorkInProgress
+\end{frame}
 
 \section{vCenter/ESX/ESXi remote inventory}
 
@@ -958,158 +983,18 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \section{Inventory}
 
 \begin{frame}
-    \frametitle{Local machine inventory}
+    \frametitle{Inventory}
 
     \begin{block}{The agent collects and send information}
         \begin{itemize}
             \item System: DNS, IP, AntiVirus, users, etc
-            \item Hardware: CPUs including number of core and threads, storage, etc
+            \item Hardware: CPUs, storage, etc
+            \item And more
         \end{itemize}
     \end{block}
 \end{frame}
 
-\section{What else?}
 
-
-\begin{frame}
-    \frametitle{What else? (1/2)}
-
-    \begin{center}
-    \includegraphics[height=4.0cm]{pics/whatelse.jpg}
-    \end{center}
-
-    \pause
-
-    \begin{block}{agent developement is very active}
-        \begin{itemize}
-            \item code clean up\\
-            {\small larger test-suite, modern perl}
-            \item architecture changes\\
-            {\small event-driven programming, various executable}
-            \item smaller memory footprint
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{What else? (2/2)}
-
-    \begin{center}
-    \includegraphics[height=4.0cm]{pics/whatelse.jpg}
-    \end{center}
-
-    \begin{block}{In test-suite we trust!}
-        \begin{itemize}
-            \item strong effort done during the last year \\
-            \small{36 800 tests on the GLPI plugin and up to 2 000 on the agent}
-            \item with even stronger benefit so far
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Our roadmap}
-
-    What we are about to release
-    \begin{itemize}
-    \item Android Agent, inventory done, finishing the GUI 
-    \end{itemize}
-
-    Work in progress
-    \begin{itemize}
-    \item Software deployment
-    \item OCS/XML → REST/JSON transition
-    \end{itemize}
-\end{frame}
-%
-%\begin{frame}
-%\frametitle{FusionInventory for GLPI 0.78: Action scheduler 1/2}
-%    \includegraphics[height=7.5cm]{pics/fusion_task.pdf}
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{FusionInventory for GLPI 0.78: Action scheduler 2/2}
-%    \includegraphics[height=7.5cm]{pics/walid_task_1.png}
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{FusionInventory for GLPI 0.78: Printer graph}
-%    \includegraphics[height=7.5cm]{pics/walid_printer_2.png}
-%\end{frame}
-%%
-%
-
-
-\begin{frame}
-\frametitle{ESX 1/2}
-
-
-   \includegraphics[height=5cm]{./pics/esx1.png}
-\end{frame}
-%
-\begin{frame}
-\frametitle{ESX 2/2}
-
-
-   \includegraphics[height=5cm]{./pics/esx2.png}
-\end{frame}
-
-%\begin{frame}
-%\frametitle{OCS/XML → REST/JSON transition}
-%
-%\begin{block}{Why}
-%    \begin{itemize}
-%    \item non standard protocol
-%    \begin{itemize}
-%    \item unhard to extend: parameters send once whatever you do
-%    \item odd XML structure to parse
-%    \item hard to extend
-%    \end{itemize}
-%    \item more modern alternative nowaday
-%    \begin{itemize}
-%    \item REST
-%    \item JSON
-%    \end{itemize}
-%    \end{itemize}
-%\end{block}
-%
-% \begin{block}{How this will be achieved}
-%    \begin{itemize}
-%    \item Long transition with dual system
-%    \item keep OCS inventory compatibiliy
-%    \end{itemize}
-%\end{block}
-
-%\end{frame}
-
-
-
-\begin{frame}
-    \frametitle{Demo}
-
-   \includegraphics[height=5cm]{./pics/fusinvglpi.png}
-
-    \bf{Demo time!}
-\end{frame}
-
-
-\section{Questions}
-
-\begin{frame}
-    \frametitle{Questions?}
-
-%    \bf{Questions?}
-    \begin{center}
-
-    \includegraphics[height=5cm]{./pics/question.pdf}
-
-    \end{center}
-%    \includegraphics[height=7.5cm]{./pics/ask.jpg}
-
-\end{frame}
-
-
-\section{Annexe}
 \begin{frame}
 
     \frametitle{The inventory content}
@@ -1319,17 +1204,6 @@ This section presents information collected in FusionInventory inventory.
 \end{description}
 \end{frame}
 \begin{frame}
-\frametitle{Inventory: USB devices}
-\begin{description}
-      \item[VENDORID] Vendor USB ID. 4 hexa char.
-      \item[PRODUCTID] Product USB ID. 4 hexa char.
-      \item[SERIAL]
-      \item[CLASS] USB Class (e.g: 8 for Mass Storage)
-      \item[SUBCLASS] USB Sub Class
-      \item[NAME] The name of the device (optional)
-\end{description}
-\end{frame}
-\begin{frame}
 \frametitle{Inventory: Network configuration (1/2)}
 \begin{description}
       \item[A network configuration.]
@@ -1342,6 +1216,7 @@ This section presents information collected in FusionInventory inventory.
       \item[IPSUBNET]
 \end{description}
 \end{frame}
+
 \begin{frame}
 \frametitle{Inventory: Network configuration (2/2)}
 \begin{description}
@@ -1369,6 +1244,7 @@ This section presents information collected in FusionInventory inventory.
       \item[VOLTAGE] Voltage in mV
 \end{description}
 \end{frame}
+
 \begin{frame}
 \frametitle{Inventory: Printers}
 \begin{description}
@@ -1387,19 +1263,7 @@ This section presents information collected in FusionInventory inventory.
       \item[SERIAL] The serial number
 \end{description}
 \end{frame}
-\begin{frame}
-\frametitle{Inventory: Running processes}
-\begin{description}
-      \item[USER] The process owner
-      \item[PID The process Id]
-      \item[CPUUSAGE] The CPU usage.
-      \item[MEM The memory.]
-      \item[VIRTUALMEMORY]
-      \item[TTY]
-      \item[STARTED] When the process has been started in YYYY/MM/DD HH:MM format
-      \item[CMD The command.]
-\end{description}
-\end{frame}
+
 \begin{frame}
 \frametitle{Inventory: AntiVirus software}
 \begin{description}
@@ -1447,7 +1311,7 @@ This section presents information collected in FusionInventory inventory.
 \end{description}
 \end{frame}
 \begin{frame}
-\frametitle{Inventory: Environment variables}
+\frametitle{Inventory: }
 \begin{description}
       \item[KEY] The variable name
       \item[VAL] The content
@@ -1456,41 +1320,174 @@ This section presents information collected in FusionInventory inventory.
 
 
 \begin{frame}
-\frametitle{Inventory: Ports}
-\begin{description}
-      \item[Serial, Parallel, SATA, etc]
-      \item[DESCRIPTION]
-      \item[NAME]
-      \item[TYPE]
-\end{description}
+\frametitle{Inventory: And also}
+\begin{itemize}
+      \item USB devices
+      \item Running processes
+      \item Environment variables
+      \item Port
+      \item Slot
+      \item Sound card
+      \item Modem
+\end{itemize}
+\end{frame}
+
+
+\section{What else?}
+
+
+\begin{frame}
+    \frametitle{What else? (1/2)}
+
+    \begin{center}
+    \includegraphics[height=4.0cm]{pics/whatelse.jpg}
+    \end{center}
+
+    \pause
+
+    \begin{block}{agent developement is very active}
+        \begin{itemize}
+            \item code clean up\\
+            {\small larger test-suite, modern perl}
+            \item architecture changes\\
+            {\small event-driven programming, various executable}
+            \item smaller memory footprint
+        \end{itemize}
+    \end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{Inventory: Slots}
-\begin{description}
-      \item[CAPACITY]
-      \item[FORMFACTOR]
-      \item[REMOVABLE]
-      \item[TYPE]
-      \item[DESCRIPTION]
-\end{description}
-\end{frame}
-\begin{frame}
-\frametitle{Inventory: Sound cards}
-\begin{description}
-      \item[DESCRIPTION]
-      \item[MANUFACTURER]
-      \item[NAME]
-\end{description}
-\end{frame}
-\begin{frame}
-\frametitle{Inventory: Modems}
-\begin{description}
-      \item[DESCRIPTION]
-      \item[NAME]
-\end{description}
+    \frametitle{What else? (2/2)}
+
+    \begin{center}
+    \includegraphics[height=4.0cm]{pics/whatelse.jpg}
+    \end{center}
+
+    \begin{block}{In test-suite we trust!}
+        \begin{itemize}
+            \item strong effort done during the last year \\
+            \small{36 800 tests on the GLPI plugin and up to 2 000 on the agent}
+            \item with even stronger benefit so far
+        \end{itemize}
+    \end{block}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Our roadmap}
+
+    What we are about to release
+    \begin{itemize}
+    \item Android Agent, inventory done, finishing the GUI 
+    \end{itemize}
+
+    Work in progress
+    \begin{itemize}
+    \item Software deployment
+    \item OCS/XML → REST/JSON transition
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Why JSON}
+
+    \begin{block}{REST/JSON benefit!}
+        \begin{itemize}
+            \item Way simpler
+            \item Already a standard in the IT management world \\
+            \small{Puppet, OPSI, etc}
+            \item Very small CPU/memory footprint
+            \item REST is easier to debug
+            \item REST is test-suite friendly using Test::HTTP::Server::Simple
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+%
+%\begin{frame}
+%\frametitle{FusionInventory for GLPI 0.78: Action scheduler 1/2}
+%    \includegraphics[height=7.5cm]{pics/fusion_task.pdf}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{FusionInventory for GLPI 0.78: Action scheduler 2/2}
+%    \includegraphics[height=7.5cm]{pics/walid_task_1.png}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{FusionInventory for GLPI 0.78: Printer graph}
+%    \includegraphics[height=7.5cm]{pics/walid_printer_2.png}
+%\end{frame}
+%%
+%
+
+
+\begin{frame}
+\frametitle{ESX 1/2}
+
+
+   \includegraphics[height=5cm]{./pics/esx1.png}
+\end{frame}
+%
+\begin{frame}
+\frametitle{ESX 2/2}
+
+
+   \includegraphics[height=5cm]{./pics/esx2.png}
+\end{frame}
+
+%\begin{frame}
+%\frametitle{OCS/XML → REST/JSON transition}
+%
+%\begin{block}{Why}
+%    \begin{itemize}
+%    \item non standard protocol
+%    \begin{itemize}
+%    \item unhard to extend: parameters send once whatever you do
+%    \item odd XML structure to parse
+%    \item hard to extend
+%    \end{itemize}
+%    \item more modern alternative nowaday
+%    \begin{itemize}
+%    \item REST
+%    \item JSON
+%    \end{itemize}
+%    \end{itemize}
+%\end{block}
+%
+% \begin{block}{How this will be achieved}
+%    \begin{itemize}
+%    \item Long transition with dual system
+%    \item keep OCS inventory compatibiliy
+%    \end{itemize}
+%\end{block}
+
+%\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Demo}
+
+   \includegraphics[height=5cm]{./pics/fusinvglpi.png}
+
+    \bf{Demo time!}
+\end{frame}
+
+
+\section{Questions}
+
+\begin{frame}
+    \frametitle{Questions?}
+
+%    \bf{Questions?}
+    \begin{center}
+
+    \includegraphics[height=5cm]{./pics/question.pdf}
+
+    \end{center}
+%    \includegraphics[height=7.5cm]{./pics/ask.jpg}
+
+\end{frame}
 
 
 \begin{frame}
