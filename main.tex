@@ -872,8 +872,9 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
     \begin{block}{Why a new software deployment?}
     \begin{itemize}
         \item Same user interface
-        \item GLPI profile
+        \item rights based on GLPI group/profile/entity
         \item Secure: HTTPS and sha512 
+        \item Sexy interface using ExtJS
     \end{itemize}
     \end{block}
 
@@ -882,26 +883,27 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
 
 \begin{frame}
-    \frametitle{Software Deployment: FusionInventory}
+    \frametitle{FusionInventory Deploy: package creation}
 
-    \includegraphics[height=4.0cm]{pics/tasks.jpg}
+    \includegraphics[height=8.0cm]{pics/packages.jpg}
 
 \WorkInProgress
 \end{frame}
 
 
 \begin{frame}
-    \frametitle{Software Deployment: FusionInventory}
+    \frametitle{FusionInventory Deploy: group creation}
 
-    \includegraphics[height=4.0cm]{pics/groups.jpg}
+    \includegraphics[height=6.0cm]{pics/groups.jpg}
 
 \WorkInProgress
 \end{frame}
 
-\begin{frame}
-    \frametitle{Software Deployment: FusionInventory}
 
-    \includegraphics[height=4.0cm]{pics/packages.jpg}
+\begin{frame}
+    \frametitle{FusionInventory Deploy: task creation}
+
+    \includegraphics[height=6.0cm]{pics/tasks.jpg}
 
 \WorkInProgress
 \end{frame}
@@ -913,7 +915,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
     \frametitle{vCenter/ESX/ESXi}
 
     \begin{block}{The issue}
-    You can run an agent on these machine.
+    You can \textbf{NOT} run an agent on these machines.
     \end{block}
 
 
@@ -923,7 +925,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
     \frametitle{vCenter/ESX/ESXi}
 
     \begin{block}{The solution}
-FusionInventory is able to connect to the machine using SOAP to get:
+FusionInventory is able to connect to the machine using VMware SOAP API to get:
         \begin{itemize}
                 \item Hardware inventory 
                 \item VirtualMachine list
@@ -943,7 +945,7 @@ vCenter are an interface in front of a group of ESX/ESXi.
     \frametitle{vCenter/ESX/ESXi: command line}
 
 \begin{lstlisting}
-fusioninventory-esx --host myesx --user foo \ 
+fusioninventory-esx --host vcenter --user foo \ 
   --password bar --directory /tmp
 \end{lstlisting}
 
@@ -978,6 +980,20 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 
 \end{frame}
 
+\begin{frame}
+\frametitle{ESX 1/2}
+
+
+   \includegraphics[height=5cm]{./pics/esx1.png}
+\end{frame}
+%
+\begin{frame}
+\frametitle{ESX 2/2}
+
+
+   \includegraphics[height=5cm]{./pics/esx2.png}
+\end{frame}
+
 
 
 \section{Inventory}
@@ -987,8 +1003,10 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 
     \begin{block}{The agent collects and send information}
         \begin{itemize}
-            \item System: DNS, IP, AntiVirus, users, etc
+            \item System: DNS, IP, AntiVirus, users, serials, etc
             \item Hardware: CPUs, storage, etc
+            \item Phone configuration: SIM card, IMEI, serial
+                \small{Android only}
             \item And more
         \end{itemize}
     \end{block}
@@ -1007,10 +1025,10 @@ This section presents information collected in FusionInventory inventory.
 \frametitle{Inventory: Generic machine information (1/3)}
 \begin{description}
       \item[USERID] The current user list, '/' is the delimiter. This field is deprecated, you should use the USERS section instead.
+      \item[OSNAME]
       \item[OSVERSION]
       \item[OSCOMMENTS] Service Pack on Windows, kernel build date on Linux
       \item[NAME]
-      \item[PROCESSORS] The processor speed in MHz, this field is deprecated, see CPUS instead.
       \item[SWAP] The swap space in MB.
 \end{description}
 \end{frame}
@@ -1018,8 +1036,6 @@ This section presents information collected in FusionInventory inventory.
 \frametitle{Inventory: Generic machine information (2/3)}
 \begin{description}
 
-      \item[ETIME] The time needed to run the inventory on the agent side.
-      \item[OSNAME]
       \item[IPADDR]
       \item[WORKGROUP]
       \item[DESCRIPTION] Computer description (Windows only so far)
@@ -1125,16 +1141,6 @@ This section presents information collected in FusionInventory inventory.
 \end{description}
 \end{frame}
 \begin{frame}
-\frametitle{Inventory: Screens}
-\begin{description}
-      \item[BASE64] The uuencoded EDID trame. Optional.
-      \item[DESCRIPTION]
-      \item[MANUFACTURER] The manufacturer retrieved from the EDID trame.
-      \item[SERIAL] The serial number retrieved from the EDID trame.
-      \item[UUENCODE] The uuencoded EDID trame. Optional.
-\end{description}
-\end{frame}
-\begin{frame}
 \frametitle{Inventory: Storage devices}
 \begin{description}
       \item[DESCRIPTION] The long name of the device displayed to the user.
@@ -1168,23 +1174,6 @@ This section presents information collected in FusionInventory inventory.
       \item[VERSION]
       \item[IS64BIT] If the software is in 32 or 64bit, (1/0)
       \item[GUID] Windows software GUID
-\end{description}
-\end{frame}
-\begin{frame}
-\frametitle{Inventory: Logged users}
-\begin{description}
-      \item[LOGIN]
-      \item[DOMAIN] The Windows domain of the user, if available.
-\end{description}
-\end{frame}
-\begin{frame}
-\frametitle{Inventory: Video cards}
-\begin{description}
-      \item[CHIPSET]
-      \item[MEMORY] Video card memory in MB
-      \item[NAME]
-      \item[RESOLUTION] Resolution in pixel. 1024x768.
-      \item[PCISLOT] The local PCI slot ID if the video card use PCI.
 \end{description}
 \end{frame}
 \begin{frame}
@@ -1233,95 +1222,15 @@ This section presents information collected in FusionInventory inventory.
       \item[SSID] Wifi only, Access point name
 \end{description}
 \end{frame}
-\begin{frame}
-\frametitle{Inventory: Batteries (laptop computer)}
-\begin{description}
-      \item[CAPACITY] Battery capacity in mWh
-      \item[DATE] Manufacture date in DD/MM/YYYY format
-      \item[NAME] Name of the device
-      \item[SERIAL] Serial number
-      \item[MANUFACTURER] Battery manufacturer
-      \item[VOLTAGE] Voltage in mV
-\end{description}
-\end{frame}
-
-\begin{frame}
-\frametitle{Inventory: Printers}
-\begin{description}
-      \item[COMMENT]
-      \item[DESCRIPTION]
-      \item[DRIVER]
-      \item[NAME]
-      \item[NETWORK] Network: True (1) if it's a network printer
-      \item[PORT]
-      \item[RESOLUTION] Resolution: eg. 600x600
-      \item[SHARED] Shared: True if the printer is shared (Win32)
-      \item[STATUS] Status: See Win32\_Printer.PrinterStatus
-      \item[ERRSTATUS] ErrStatus: See Win32\_Printer.ExtendedDetectedErrorState
-      \item[SERVERNAME]
-      \item[SHARENAME]
-      \item[SERIAL] The serial number
-\end{description}
-\end{frame}
-
-\begin{frame}
-\frametitle{Inventory: AntiVirus software}
-\begin{description}
-      \item[COMPANY] Comapny name
-      \item[NAME]
-      \item[GUID] Unique ID
-      \item[ENABLED] 1 if the antivirus is enabled.
-      \item[UPTODATE] 1 if the antivirus is up to date.
-      \item[VERSION]
-\end{description}
-\end{frame}
-\begin{frame}
-\frametitle{Inventory: LVM Logical Volumes}
-\begin{description}
-      \item[LVNAME] The volume name.
-      \item[VGNAME] The volume group name.
-      \item[ATTR] The special attribue used on this volume (e.g: a-)
-      \item[SIZE] The size of the volume on MB.
-      \item[UUID] The volume UUID.
-\end{description}
-\end{frame}
-\begin{frame}
-\frametitle{Inventory: LVM Physical volumes}
-\begin{description}
-      \item[DEVICE] The device name. Eg.: /dev/sda1 on Linux.
-      \item[PV\_NAME] The physical device name.
-      \item[FORMAT] The format. E.g: lvm2.
-      \item[ATTR] The LVM attribue in use for this phyisical device.
-      \item[SIZE] The size in MB.
-      \item[PV\_UUID] The UUID.
-      \item[PV\_PE\_COUNT] Item PV\_PE\_COUNT
-      \item[PE\_SIZE] Item PE\_SIZE
-\end{description}
-\end{frame}
-\begin{frame}
-\frametitle{Inventory: LVM Volume group}
-\begin{description}
-      \item[VGNAME] The name of the volume group.
-      \item[PV\_COUNT]
-      \item[LV\_COUNT]
-      \item[ATTR] The volume group LVM attribue.
-      \item[SIZE] The size.
-      \item[FREE] The free space.
-      \item[UUID] The UUID
-\end{description}
-\end{frame}
-\begin{frame}
-\frametitle{Inventory: }
-\begin{description}
-      \item[KEY] The variable name
-      \item[VAL] The content
-\end{description}
-\end{frame}
-
 
 \begin{frame}
 \frametitle{Inventory: And also}
 \begin{itemize}
+      \item Logged users
+      \item Battery
+      \item Printer (with serial)
+      \item LVM configuration (Linux, AIX $\geq$ 2.1.10)
+      \item Screen and Video card
       \item USB devices
       \item Running processes
       \item Environment variables
@@ -1366,7 +1275,7 @@ This section presents information collected in FusionInventory inventory.
     \begin{block}{In test-suite we trust!}
         \begin{itemize}
             \item strong effort done during the last year \\
-            \small{36 800 tests on the GLPI plugin and up to 2 000 on the agent}
+            \small{$\geq$40 000 tests on the GLPI plugin and up to 2 000 on the agent}
             \item with even stronger benefit so far
         \end{itemize}
     \end{block}
@@ -1378,17 +1287,38 @@ This section presents information collected in FusionInventory inventory.
     What we are about to release
     \begin{itemize}
     \item Android Agent, inventory done, finishing the GUI 
+    \item FusionInventory for GLPI 0.80 \\
+        \small{featuring the configuration Wizard!}
+    \item Debian package for fusioninventory-esx
     \end{itemize}
 
     Work in progress
     \begin{itemize}
     \item Software deployment
     \item OCS/XML → REST/JSON transition
+    \item FusionInventory Agent 2.2.x
     \end{itemize}
+\WorkInProgress
 \end{frame}
 
+\begin{frame}[fragile]
+    \frametitle{Why JSON (1/2)}
+\begin{lstlisting}
+GET http://srv/?action=getConfig&machineid=foobar
+{
+   "httpd" : {
+      "ip" : "0.0.0.0",
+      "trust" : [
+         "127.0.0.1" 
+      ],
+      "port" : 62354
+   }
+}
+\end{lstlisting}
+\end{frame}
 \begin{frame}
-    \frametitle{Why JSON}
+    \frametitle{Why JSON (2/2)}
+
 
     \begin{block}{REST/JSON benefit!}
         \begin{itemize}
@@ -1421,20 +1351,6 @@ This section presents information collected in FusionInventory inventory.
 %
 
 
-\begin{frame}
-\frametitle{ESX 1/2}
-
-
-   \includegraphics[height=5cm]{./pics/esx1.png}
-\end{frame}
-%
-\begin{frame}
-\frametitle{ESX 2/2}
-
-
-   \includegraphics[height=5cm]{./pics/esx2.png}
-\end{frame}
-
 %\begin{frame}
 %\frametitle{OCS/XML → REST/JSON transition}
 %
@@ -1464,14 +1380,14 @@ This section presents information collected in FusionInventory inventory.
 %\end{frame}
 
 
-
-\begin{frame}
-    \frametitle{Demo}
-
-   \includegraphics[height=5cm]{./pics/fusinvglpi.png}
-
-    \bf{Demo time!}
-\end{frame}
+%
+%\begin{frame}
+%    \frametitle{Demo}
+%
+%   \includegraphics[height=5cm]{./pics/fusinvglpi.png}
+%
+%    \bf{Demo time!}
+%\end{frame}
 
 
 \section{Questions}
