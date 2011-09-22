@@ -28,7 +28,7 @@
 \setlength{\TPVertModule}{1mm}
 \newcommand{\WorkInProgress}{%
 \begin{textblock}{14}(120.0,75.7)
-\includegraphics[height=0.7cm]{./pics/workinprogress.jpg}
+\includegraphics[height=0.1cm]{./pics/logo_owf.png}
 \end{textblock}
   }
 
@@ -39,16 +39,15 @@
 \subject{Assets management with FusionInventory and GLPI}
 \keywords{Assets management, Inventory, FusionInventory, GLPI}
 
-\date{July 2011}
+\date{September 2011}
 %\titlegraphic{GLPI}
 %subtitle{\includegraphics[width=1.2cm]{./pics/fusioninventory-logo.png}}
-\institute{\includegraphics[height=4.2cm]{./pics/rmll2011.jpg}}
+\institute{\includegraphics[height=2.2cm]{./pics/logo_owf.png}}
 
 \titlegraphic{}
 %subtitle{\includegraphics[width=1.2cm]{./pics/fusioninventory-logo.png}}
 %\institute{\includegraphics[height=4.2cm]{./pics/fusioninventory-logo.pdf}}
-\author{ David Durieux \texttt{<d.durieux@siprossii.com>} \\
-Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
+\author{ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 \logo{\includegraphics[height=0.7cm]{./pics/fusioninventory-logo.pdf}}
 
 \AtBeginSection[] % Do nothing for \section*
@@ -64,20 +63,6 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 \begin{document}
 
 \frame[plain]{\titlepage}
-
-\begin{frame}
-    \frametitle{About us: David Durieux}
-
-    \begin{block}{IT management consultant}
-        \begin{itemize}
-        \item GLPI core-developer
-        \item FusionInventory project co-leader
-        \item Work at siprossii, Lyon area, France
-        \end{itemize}
-    \end{block}
-
-\end{frame}
-
 
 
 \begin{frame}
@@ -98,23 +83,6 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
 
 \begin{frame}
-    \frametitle{The FusionInventory contributors}
-
-    \begin{center}
-    \includegraphics[height=3.5cm]{./pics/sparta.jpg}
-    \end{center}
-
-    \begin{itemize}
-    \item about 10 people directly involved in the project
-    \item active community of contributors
-    \item 2 companies involved
-    \end{itemize}
-
-    \pause
-    \bf{We are looking for people to JOIN US!}
-\end{frame}
-
-\begin{frame}
     \frametitle{The origin}
 
     \begin{description}
@@ -123,7 +91,8 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
       \item[2009] Agent/Server integration 
       \item[2010] FusionInventory project
       \item[2010] Uranos integration
-      \item[2011] Rudder integration
+      \item[2011] Normation Rudder integration
+      \item[2011] Mandriva Pulse2 integration (Android)
     \end{description}
 
 \end{frame}
@@ -142,6 +111,26 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
         \item public Forge, Git repositories, etc
     \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+    \frametitle{The FusionInventory contributors}
+
+    \begin{center}
+    \includegraphics[height=3.5cm]{./pics/sparta.jpg}
+    \end{center}
+
+    \begin{itemize}
+    \item about 10 people directly involved in the project
+    \item active community of contributors
+    \item 2 companies involved
+    \end{itemize}
+
+    \pause
+    \bf{We are looking for people to JOIN US!}
+\end{frame}
+
+
 
 \section{Global Overview}
 
@@ -298,16 +287,18 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
     Supported Operating Systems:
 
     \begin{itemize}
-        \item<2-> Linux
-        \item<3-> BSD
-        \item<4-> AIX
-        \item<5-> HP-UX
-        \item<6-> Solaris
-        \item<7-> Windows, all from 2000 to Seven 64bit
+        \item<1-> Linux
+        \item<1-> Windows, all from 2000 to Seven 64bit
+        \item<1-> MacOSX 
+        \item<2-> BSD
+        \item<2-> AIX
+        \item<2-> HP-UX
+        \item<2-> Solaris
+        \item<3-> Android 
     \end{itemize}
 
 
-    \uncover<8->{\href{http://forge.fusioninventory.org/projects/fusioninventory-agent/wiki/Agent\_supportedplateforms}{A complete list is avallable on the website}}
+    \uncover<3->{\href{http://forge.fusioninventory.org/projects/fusioninventory-agent/wiki/Agent\_supportedplateforms}{A complete list is avallable on the website}}
 
 \includegraphics[height=0.5cm]{pics/logos/aix.png}
 \includegraphics[height=0.5cm]{pics/logos/fedora.png}
@@ -501,12 +492,12 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
     \begin{block}{Android}
         \begin{itemize}
-            \item All the revision since 1.6
+            \item All revision since 1.6
+            \item Available on the Market!
         \end{itemize}
     \end{block}
  \end{column}
 \end{columns}
-\WorkInProgress
 \end{frame}
 
 
@@ -658,6 +649,27 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
     
 \end{frame}
+
+\begin{frame}
+    \frametitle{SNMP: dead teletubbies}
+
+ \begin{columns}
+ \begin{column}{0.35\textwidth}
+         \includegraphics[height=7.5cm]{./pics/dead-teletubbies.jpg}
+ \end{column}
+ \begin{column}{0.65\textwidth}
+    \begin{block}{FAILS}
+    ...
+    \end{block}
+
+ \end{column}
+\end{columns}
+
+
+    
+\end{frame}
+
+
 
 \begin{frame}
     \frametitle{SNMP: How do we unfuck this mess?}
@@ -846,24 +858,7 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 \section{Software Deployment}
 
 \begin{frame}
-    \frametitle{Software Deployment: OCS Inventory}
-
-    \begin{block}{What?}
-    OCS software deployment featuring peer to peer support
-    \end{block}
-
-    \begin{block}{Benefit}
-    \begin{itemize}
-        \item no proxy nor mirror
-        \item bandwidth-friendly
-        \item OS independent
-    \end{itemize}
-    \end{block}
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{Software Deployment: FusionInventory}
+    \frametitle{Software Deployment}
 
     \begin{block}{What?}
     FusionInventory deployment
@@ -871,10 +866,11 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
     \begin{block}{Why a new software deployment?}
     \begin{itemize}
-        \item Same user interface
-        \item rights based on GLPI group/profile/entity
+        \item Same user interface: GLPI
+        \item Rights based on GLPI group/profile/entity
         \item Secure: HTTPS and sha512 
         \item Sexy interface using ExtJS
+        \item Network efficiency: use P2P
     \end{itemize}
     \end{block}
 
@@ -907,6 +903,17 @@ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
 
 \WorkInProgress
 \end{frame}
+
+\begin{frame}
+    \frametitle{FusionInventory Deploy: Work in progres}
+
+    Release planned for the coming weeks.
+
+    \bf{Stay turned!}
+
+\WorkInProgress
+\end{frame}
+
 
 \section{vCenter/ESX/ESXi remote inventory}
 
@@ -1012,6 +1019,321 @@ fusioninventory-injector -v --file /tmp/*.ocs \
     \end{block}
 \end{frame}
 
+\section{Let's speak about Perl}
+
+\begin{frame}
+    \frametitle{Perl: Why Perl?}
+
+    \begin{block}{A nice tool to do the job}
+        \begin{itemize}
+            \item A lot of data processing
+            \item Some complexe data structure to deal with
+            \item Few low level access
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Perl: Portability}
+
+    \begin{block}{A large collection of OSes supported}
+        \begin{itemize}
+            \item Very few difference between UNIX like OSes
+            \item Win32 differences remain low
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Perl: CPAN 1/3}
+
+    \begin{block}{Some great pieces of software out there}
+        \begin{itemize}
+            \item LWP: the Perl WWW libs
+            \item POE: the cooperative multitasking
+            \item Win32* stuff
+            \item much more
+            \item Great visibility for FusionInventory distribution 
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Perl: CPAN 2/3}
+
+    \begin{block}{CPAN test-suite automation}
+        \begin{itemize}
+            \item efficiant way to get the distribution tested everywhere
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Perl: CPAN 3/3}
+
+    \begin{block}{Drawback}
+        \begin{itemize}
+            \item Some unmaintained packages
+            \item XS lib are hardly portable
+            \item Hard to know if a lib is thread-safe
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Perl: System resource usage 1/3}
+
+    \begin{block}{Memory}
+        \begin{itemize}
+            \item We use about 50MB on Windows
+            \item fork() on Win32 is emulated and don't give back memory 
+            \item No simple solution to give back memory to the OS
+        \end{itemize}
+        This remains lower than an AntiVirus but we plan to reduce it.
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Perl: System resource usage 2/3}
+
+    \begin{block}{CPU}
+        \begin{itemize}
+            \item More expensive than C/++
+        \end{itemize}
+        How care if the inventory is generated in 15s instead of 5?
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Perl: System resource usage 3/3}
+
+    \begin{block}{Disk space}
+        \begin{itemize}
+            \item A lot of little file → lot of I/O during install
+        \end{itemize}
+        A 65MB installation size is not a big deal nowaday.
+    \end{block}
+\end{frame}
+
+
+\section{The FusionInventory::Agent distribution}
+
+\begin{frame}
+    \frametitle{Some metric (1/2)}
+
+    \begin{block}{1,4 year ago}
+        \begin{itemize}
+            \item 172 Perl modules
+            \item 15910 lines
+            \item 0 test
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some metric (2/2)}
+
+    \begin{block}{Today}
+        \begin{itemize}
+            \item 196 Perl modules (+11\%)
+            \item 24395 lines (+15\%)
+            \item 889 tests (+100\%)
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some metric (2/2)}
+
+    \begin{block}{Today}
+        \begin{itemize}
+            \item 196 Perl modules (+11\%)
+            \item 24395 lines (+15\%)
+            \item \bf{889 tests (+100\%)} We enjoy boring stuff!
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Test-Suite, aka, the boring stuff we love}
+
+    \begin{block}{How to test untestable stuff}
+        \begin{itemize}
+            \item SSL certificat check for client: fire up a web server with SSL and run test
+            \item various client / server protocole check
+            \item ensure Win32 Modules build fine from an UNIX
+            \item etc
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{What FusionInventory can bring to me?}
+
+    \begin{block}{Different levels of integration}
+        \begin{itemize}
+            \item Use directly the FusionInventory Modules
+            \item Call and interact with the agent
+            \item Build your solution on top of GLPI using webservices 
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{What FusionInventory can bring to me?}
+
+    \begin{block}{Improve the solution}
+        \begin{itemize}
+            \item Create your own "input modules" to extend inventory 
+            \item Add new task 
+            \item ...
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+
+\section{What else?}
+
+
+\begin{frame}
+    \frametitle{What else? (1/2)}
+
+    \begin{center}
+    \includegraphics[height=4.0cm]{pics/whatelse.jpg}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Our roadmap}
+
+    What we are about to release
+    \begin{itemize}
+        \item FusionInventory Agent 2.2.x
+        \item Software deployment
+    \end{itemize}
+
+    Work in progress
+    \begin{itemize}
+        \item OCS/XML → REST/JSON transition
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Why JSON (1/2)}
+\begin{lstlisting}
+GET http://srv/?action=getConfig&machineid=foobar
+{
+   "httpd" : {
+      "ip" : "0.0.0.0",
+      "trust" : [
+         "127.0.0.1" 
+      ],
+      "port" : 62354
+   }
+}
+\end{lstlisting}
+\end{frame}
+\begin{frame}
+    \frametitle{Why JSON (2/2)}
+
+
+    \begin{block}{REST/JSON benefit!}
+        \begin{itemize}
+            \item Way simpler
+            \item Already a standard in the IT management world \\
+            \small{Puppet, OPSI, etc}
+            \item Very small CPU/memory footprint
+            \item REST is easier to debug
+            \item REST is test-suite friendly using Test::HTTP::Server::Simple
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+%
+%\begin{frame}
+%\frametitle{FusionInventory for GLPI 0.78: Action scheduler 1/2}
+%    \includegraphics[height=7.5cm]{pics/fusion_task.pdf}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{FusionInventory for GLPI 0.78: Action scheduler 2/2}
+%    \includegraphics[height=7.5cm]{pics/walid_task_1.png}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{FusionInventory for GLPI 0.78: Printer graph}
+%    \includegraphics[height=7.5cm]{pics/walid_printer_2.png}
+%\end{frame}
+%%
+%
+
+
+%\begin{frame}
+%\frametitle{OCS/XML → REST/JSON transition}
+%
+%\begin{block}{Why}
+%    \begin{itemize}
+%    \item non standard protocol
+%    \begin{itemize}
+%    \item unhard to extend: parameters send once whatever you do
+%    \item odd XML structure to parse
+%    \item hard to extend
+%    \end{itemize}
+%    \item more modern alternative nowaday
+%    \begin{itemize}
+%    \item REST
+%    \item JSON
+%    \end{itemize}
+%    \end{itemize}
+%\end{block}
+%
+% \begin{block}{How this will be achieved}
+%    \begin{itemize}
+%    \item Long transition with dual system
+%    \item keep OCS inventory compatibiliy
+%    \end{itemize}
+%\end{block}
+
+%\end{frame}
+
+
+%
+%\begin{frame}
+%    \frametitle{Demo}
+%
+%   \includegraphics[height=5cm]{./pics/fusinvglpi.png}
+%
+%    \bf{Demo time!}
+%\end{frame}
+
+
+\section{Questions}
+
+\begin{frame}
+    \frametitle{Questions?}
+
+%    \bf{Questions?}
+    \begin{center}
+
+    \includegraphics[height=5cm]{./pics/question.pdf}
+
+    \end{center}
+%    \includegraphics[height=7.5cm]{./pics/ask.jpg}
+
+\end{frame}
+
+\section{Annexe}
 
 \begin{frame}
 
@@ -1242,168 +1564,6 @@ This section presents information collected in FusionInventory inventory.
 \end{frame}
 
 
-\section{What else?}
-
-
-\begin{frame}
-    \frametitle{What else? (1/2)}
-
-    \begin{center}
-    \includegraphics[height=4.0cm]{pics/whatelse.jpg}
-    \end{center}
-
-    \pause
-
-    \begin{block}{agent developement is very active}
-        \begin{itemize}
-            \item code clean up\\
-            {\small larger test-suite, modern perl}
-            \item architecture changes\\
-            {\small event-driven programming, various executable}
-            \item smaller memory footprint
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{What else? (2/2)}
-
-    \begin{center}
-    \includegraphics[height=4.0cm]{pics/whatelse.jpg}
-    \end{center}
-
-    \begin{block}{In test-suite we trust!}
-        \begin{itemize}
-            \item strong effort done during the last year \\
-            \small{$\geq$40 000 tests on the GLPI plugin and up to 2 000 on the agent}
-            \item with even stronger benefit so far
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Our roadmap}
-
-    What we are about to release
-    \begin{itemize}
-    \item Android Agent, inventory done, finishing the GUI 
-    \item FusionInventory for GLPI 0.80 \\
-        \small{featuring the configuration Wizard!}
-    \item Debian package for fusioninventory-esx
-    \end{itemize}
-
-    Work in progress
-    \begin{itemize}
-    \item Software deployment
-    \item OCS/XML → REST/JSON transition
-    \item FusionInventory Agent 2.2.x
-    \end{itemize}
-\WorkInProgress
-\end{frame}
-
-\begin{frame}[fragile]
-    \frametitle{Why JSON (1/2)}
-\begin{lstlisting}
-GET http://srv/?action=getConfig&machineid=foobar
-{
-   "httpd" : {
-      "ip" : "0.0.0.0",
-      "trust" : [
-         "127.0.0.1" 
-      ],
-      "port" : 62354
-   }
-}
-\end{lstlisting}
-\end{frame}
-\begin{frame}
-    \frametitle{Why JSON (2/2)}
-
-
-    \begin{block}{REST/JSON benefit!}
-        \begin{itemize}
-            \item Way simpler
-            \item Already a standard in the IT management world \\
-            \small{Puppet, OPSI, etc}
-            \item Very small CPU/memory footprint
-            \item REST is easier to debug
-            \item REST is test-suite friendly using Test::HTTP::Server::Simple
-        \end{itemize}
-    \end{block}
-
-\end{frame}
-%
-%\begin{frame}
-%\frametitle{FusionInventory for GLPI 0.78: Action scheduler 1/2}
-%    \includegraphics[height=7.5cm]{pics/fusion_task.pdf}
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{FusionInventory for GLPI 0.78: Action scheduler 2/2}
-%    \includegraphics[height=7.5cm]{pics/walid_task_1.png}
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{FusionInventory for GLPI 0.78: Printer graph}
-%    \includegraphics[height=7.5cm]{pics/walid_printer_2.png}
-%\end{frame}
-%%
-%
-
-
-%\begin{frame}
-%\frametitle{OCS/XML → REST/JSON transition}
-%
-%\begin{block}{Why}
-%    \begin{itemize}
-%    \item non standard protocol
-%    \begin{itemize}
-%    \item unhard to extend: parameters send once whatever you do
-%    \item odd XML structure to parse
-%    \item hard to extend
-%    \end{itemize}
-%    \item more modern alternative nowaday
-%    \begin{itemize}
-%    \item REST
-%    \item JSON
-%    \end{itemize}
-%    \end{itemize}
-%\end{block}
-%
-% \begin{block}{How this will be achieved}
-%    \begin{itemize}
-%    \item Long transition with dual system
-%    \item keep OCS inventory compatibiliy
-%    \end{itemize}
-%\end{block}
-
-%\end{frame}
-
-
-%
-%\begin{frame}
-%    \frametitle{Demo}
-%
-%   \includegraphics[height=5cm]{./pics/fusinvglpi.png}
-%
-%    \bf{Demo time!}
-%\end{frame}
-
-
-\section{Questions}
-
-\begin{frame}
-    \frametitle{Questions?}
-
-%    \bf{Questions?}
-    \begin{center}
-
-    \includegraphics[height=5cm]{./pics/question.pdf}
-
-    \end{center}
-%    \includegraphics[height=7.5cm]{./pics/ask.jpg}
-
-\end{frame}
 
 
 \begin{frame}
@@ -1415,6 +1575,7 @@ GET http://srv/?action=getConfig&machineid=foobar
             \item AIX \url{http://www.flickr.com/photos/pchow98/5115638572/}
             \item MacOSX \url{http://www.flickr.com/photos/adriannier/5555516312/sizes/l/in/photostream/}
             \item Cisco 6500 \url{http://www.flickr.com/photos/joachim\_s\_mueller/3084164647/sizes/z/in/photostream/}
+            \item Teletubbies \url{http://www.flickr.com/photos/tudor/232849285/lightbox/}
         \end{itemize}
     \end{block}
 \end{frame}
