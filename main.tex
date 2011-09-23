@@ -391,6 +391,7 @@
             \item \textbf{Tiger} all 
             \item \textbf{Leopard} all
             \item \textbf{Snow Leopard} all
+            \item \textbf{Lion} all
         \end{itemize}
     \end{block}
  \end{column}
@@ -1045,81 +1046,7 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \end{frame}
 
 
-\begin{frame}
-    \frametitle{Perl: CPAN 1/3}
-
-    \begin{block}{Some great pieces of software out there}
-        \begin{itemize}
-            \item LWP: the Perl WWW libs
-            \item POE: the cooperative multitasking
-            \item Win32* stuff
-            \item much more
-            \item Great visibility for FusionInventory distribution 
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Perl: CPAN 2/3}
-
-    \begin{block}{CPAN test-suite automation}
-        \begin{itemize}
-            \item efficiant way to get the distribution tested everywhere
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Perl: CPAN 3/3}
-
-    \begin{block}{Drawback}
-        \begin{itemize}
-            \item Some unmaintained packages
-            \item XS lib are hardly portable
-            \item Hard to know if a lib is thread-safe
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-
-
-\begin{frame}
-    \frametitle{Perl: System resource usage 1/3}
-
-    \begin{block}{Memory}
-        \begin{itemize}
-            \item We use about 50MB on Windows
-            \item fork() on Win32 is emulated and don't give back memory 
-            \item No simple solution to give back memory to the OS
-        \end{itemize}
-        This remains lower than an AntiVirus but we plan to reduce it.
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Perl: System resource usage 2/3}
-
-    \begin{block}{CPU}
-        \begin{itemize}
-            \item More expensive than C/++
-        \end{itemize}
-        How care if the inventory is generated in 15s instead of 5?
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Perl: System resource usage 3/3}
-
-    \begin{block}{Disk space}
-        \begin{itemize}
-            \item A lot of little file → lot of I/O during install
-        \end{itemize}
-        A 65MB installation size is not a big deal nowaday.
-    \end{block}
-\end{frame}
-
-
-\section{The FusionInventory::Agent distribution}
+\section{The agent distribution}
 
 \begin{frame}
     \frametitle{Some metric (1/2)}
@@ -1163,7 +1090,7 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \begin{frame}
     \frametitle{Test-Suite, aka, the boring stuff we love}
 
-    \begin{block}{How to test untestable stuff}
+    \begin{block}{How to test untestable stuff to improve quality}
         \begin{itemize}
             \item SSL certificat check for client: fire up a web server with SSL and run test
             \item various client / server protocol check
@@ -1175,7 +1102,7 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \end{frame}
 
 \begin{frame}
-    \frametitle{What FusionInventory can bring to me?}
+    \frametitle{What FusionInventory can bring to developers?}
 
     \begin{block}{Different levels of integration}
         \begin{itemize}
@@ -1193,7 +1120,8 @@ fusioninventory-injector -v --file /tmp/*.ocs \
     \begin{block}{Improve the solution}
         \begin{itemize}
             \item Create your own "input modules" to extend inventory 
-            \item Add new task 
+            \item Reuse and improve the SNMP models
+            \item Add new task to the agent 
             \item ...
         \end{itemize}
     \end{block}
@@ -1205,7 +1133,7 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 
 
 \begin{frame}
-    \frametitle{What else? (1/2)}
+    \frametitle{What else?}
 
     \begin{center}
     \includegraphics[height=4.0cm]{pics/whatelse.jpg}
