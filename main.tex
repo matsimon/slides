@@ -142,8 +142,8 @@
     \begin{block}{FusionInventory n'est pas directement un logiciel}
     \begin{itemize}
         \item Agent: un logiciel destiné aux machines du parc
-        \item Serveur: dialogue avec le serveur
-        \item Tâche: une actione effectuée par un agent pour le serveur
+        \item Serveur: dialogue avec l'agent
+        \item Tâche: une action effectuée par un agent pour le serveur
     \end{itemize}
     \end{block}
 
@@ -165,13 +165,13 @@
             \item Pulse 2 de Mandriva
 
         \end{itemize}
-        ... il est aussi possible de produire un inventaire XML en local.
+        ... il est aussi possible de produire un inventaire XML (et bientôt JSON) en local.
     \end{block}
 
 \end{frame}
 
 \begin{frame}
-    \frametitle{Des intégrations sont en discution avec}
+    \frametitle{Des intégrations sont en discussion avec}
 
     \begin{itemize}
     \item FusionDirectory
@@ -197,15 +197,15 @@
     \frametitle{Agent: Installation}
 
 
-    \begin{block}{different options}
+    \begin{block}{Plusieurs solutions}
         \begin{itemize}
             \item \textbf{distribution packages} \\
             \small{Debian, Fedora, EPEL, Ubuntu, Mageia, ...}
             \item \textbf{Windows installer} \\
             \small{GPO, psexec, ...}
-            \item \textbf{static prebuilt packages}, untar and run \\
+            \item \textbf{static prebuilt packages}, untar et lancer \\
             \small{62 differents system so far}
-            \item tarball or CPAN installation
+            \item tarball et CPAN
         \end{itemize}
     \end{block}
 \end{frame}
@@ -218,22 +218,22 @@
 \includegraphics[height=5.5cm]{pics/googleplay.png}
  \end{column}
  \begin{column}{0.65\textwidth}
-Sur Androïd, l'application est sur Google Play.
+Sur Android, l'application est sur Google Play.
  \end{column}
 \end{columns}
 
 \end{frame}
 
 
-\section{Agent : OS supporté}
+\section{Agent : OS supportés}
 
 \begin{frame}
     \frametitle{Les systèmes d'exploitation supportés}
 
     \begin{itemize}
         \item Linux
-        \item Windows, depuis 2000
-        \item MacOSX 
+        \item Windows
+        \item MacOSX
         \item BSD
         \item AIX
         \item HP-UX
@@ -264,7 +264,7 @@ Sur Androïd, l'application est sur Google Play.
 \begin{frame}    
     \begin{block}{Perl aide beaucoup}
         \begin{itemize}
-            \item Peu de différences fondamentales en les UNIX like
+            \item Peu de différences fondamentales entre les UNIX like
             \item Il reste Win32
         \end{itemize}
     \end{block}
@@ -355,14 +355,14 @@ Sur Androïd, l'application est sur Google Play.
 \begin{frame}
     \frametitle{SNMP: Le cauchemar}
 
-    \begin{block}{“Vous pouvez supporter mon équipement, j'ai la MIB !”}
+    \begin{block}{“Vous pouvez supporter mon matériel, j'ai la MIB !”}
 
     \pause
     \begin{itemize}
     \item En règle générale, elles sont dures à trouver
-    \item Rarement libres ou pire, redistribuable
+    \item Rarement libres ou redistribuables
     \item Des informations importantes sont souvant absentes
-    \item Le pire ! Elles sont bien souvant fausse !
+    \item Le pire ! Elles sont bien souvent fausses !
     \end{itemize}
     \end{block}
 
@@ -441,7 +441,7 @@ Sur Androïd, l'application est sur Google Play.
     \begin{block}{Informations générales}
     \begin{itemize}
     \item Numéro de série
-    \item Fabriquant
+    \item Fabricant
     \item Modèle
     \item Version du firmware
     \item Adresse MAC
@@ -474,8 +474,8 @@ Sur Androïd, l'application est sur Google Play.
     \begin{itemize}
     \item Adresse MAC \\ 
     \small{une à “n”}
-    \item Découverte LLDP / CDP (Cisco) \\
-    \small{remontée POIP}
+    \item Découverte LLDP / CDP \\
+    \small{remontée POIP, etc}
     \end{itemize}
     \end{block}
 \end{frame}
@@ -493,12 +493,12 @@ Sur Androïd, l'application est sur Google Play.
 
     \begin{block}{Informations générales}
     \begin{itemize}
-    \item Serial number
-    \item Manufacturer
-    \item Model
+    \item Numéro de série
+    \item Fabricant
+    \item Modèle
     \item Firmware
-    \item Memory
-    \item Mac address
+    \item Mémoire
+    \item Adresse MAC
     \item etc
     \end{itemize}
     \end{block}
@@ -509,7 +509,7 @@ Sur Androïd, l'application est sur Google Play.
 
     \begin{block}{Informations avancées}
     \begin{itemize}
-    \item Etats des cartouches
+    \item \'{E}tats des cartouches
     \item Compteur de page
     \end{itemize}
     \end{block}
@@ -523,14 +523,14 @@ Sur Androïd, l'application est sur Google Play.
     \end{center}
 \end{frame}
 
-\section{Tâche : Reveil sur le réseau}
+\section{Tâche : Réveil sur le réseau}
 
 \begin{frame}
     \frametitle{Wake On Lan}
 
     \begin{block}{WoL}
     \begin{itemize}
-        \item Possiblité d'utiliser l'agent comme un proxy pour emettre des requêtes WoL.
+        \item Possiblité d'utiliser l'agent comme un proxy pour émettre des requêtes WoL.
     \end{itemize}
     \end{block}
 
@@ -549,7 +549,7 @@ Sur Androïd, l'application est sur Google Play.
 
     \begin{block}{Ce qu'on peut faire}
     \begin{itemize}
-    \item Démarrer toutes les machines à 2h00 tout les soirs pour les mises à jour.
+    \item Démarrer toutes les machines à 2h00 tous les soirs pour les mises à jour.
     \end{itemize}
     \end{block}
 
@@ -561,11 +561,11 @@ Sur Androïd, l'application est sur Google Play.
 \begin{frame}
     \frametitle{La télédiffusion (1/2)}
 
-    \begin{block}{Possibilité d'envoyer des actions a réaliser aux machines?}
+    \begin{block}{Possibilité d'envoyer des actions à réaliser aux machines?}
     \begin{itemize}
         \item Pouvoir réaliser des actions sur les machines
         \item Envoyer des fichiers
-        \item Réduire la bande passante grâce au “paire à paire”
+        \item Réduire la bande passante grâce au “pair à pair”
     \end{itemize}
     Attention : ce n'est pas de la gestion de configuration.
     \end{block}
@@ -580,20 +580,21 @@ Sur Androïd, l'application est sur Google Play.
     \begin{itemize}
         \item Utiliser l'interface existante de GLPI
         \item La gestion des droits de GLPI (groupes/profiles/entités)
+        \item Multi-plateforme
     \end{itemize}
     \end{block}
 
 \WorkInProgress
 \end{frame}
 
-\section{Tâche : vCenter/ESX/ESXi remote inventory}
+\section{Tâche : Inventaire vCenter/ESX/ESXi}
 
 
 \begin{frame}
     \frametitle{vCenter/ESX/ESXi}
 
     \begin{block}{Le problème}
-    Des boites noire : On ne peut pas installer d'agent dessuss.
+    Des boites noires : On ne peut pas installer d'agent dessus comme pour les autres hyperviseurs.
     \end{block}
 
 
@@ -607,7 +608,7 @@ Sur Androïd, l'application est sur Google Play.
         \begin{itemize}
                 \item inventaire Hardware
                 \item lister les Machines Virtuelles
-                \item lister les ESX (dans les cas des ESX)
+                \item lister les ESX (dans les cas des vCenter)
         \end{itemize}
     \end{block}
 
@@ -652,22 +653,6 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 
 \end{frame}
 
-\begin{frame}
-\frametitle{ESX 1/2}
-
-
-   \includegraphics[height=5cm]{./pics/esx1.png}
-\end{frame}
-%
-\begin{frame}
-\frametitle{ESX 2/2}
-
-
-   \includegraphics[height=5cm]{./pics/esx2.png}
-\end{frame}
-
-
-
 \section{Tâche : L'inventaire}
 
 \begin{frame}
@@ -706,7 +691,6 @@ fusioninventory-injector -v --file /tmp/*.ocs \
         \item antivirus
         \item LVM
         \end{itemize}
-        Android: carte SIM, IMEI , etc
     \end{block}
 \end{frame}
 
@@ -748,10 +732,10 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \begin{frame}
     \frametitle{test-unitaire}
 
-    \begin{block}{Comment ?}
+    \begin{block}{Pour ?}
         \begin{itemize}
             \item tester le parsing sur des OS qu'on a pas
-            \item s'assurer que le code Win32 marche depuis un UNIX like \\
+            \item vérifier le code Win32 depuis un autre OS \\
             \small{jusqu'a WMI et la base de registre}
             \item vérifier des choses pénibles \\
             \small{unicode, HTTPS, etc}
@@ -797,7 +781,7 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \begin{frame}
 
     \begin{block}{Créer des nouvelles tâches}
-    Vous permet de récuperer facilement dans le bon contexte des objets :
+    Vous permet de récuperer facilement des objets dans le bon contexte :
     \begin{itemize}
       \item \$serveur
       \item \$config
