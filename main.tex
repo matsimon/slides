@@ -502,112 +502,112 @@ There's also an Android agent available on Google Play.
 \end{frame}
 
 \begin{frame}
-    \frametitle{SNMP: Imprimante (1/2)}
+    \frametitle{SNMP: Printers (1/2)}
 
-    \begin{block}{Informations générales}
+    \begin{block}{General information}
     \begin{itemize}
-    \item Numéro de série
-    \item Fabricant
-    \item Modèle
+    \item Serial number
+    \item Supplier
+    \item Model
     \item Firmware
-    \item Mémoire
-    \item Adresse MAC
+    \item Memory
+    \item MAC Address
     \item etc
     \end{itemize}
     \end{block}
 \end{frame}
 
 \begin{frame}
-    \frametitle{SNMP: Imprimante (2/2)}
+    \frametitle{SNMP: Printers (2/2)}
 
-    \begin{block}{Informations avancées}
+    \begin{block}{Advanced informations}
     \begin{itemize}
-    \item \'{E}tats des cartouches
-    \item Compteur de page
+    \item Cartridges state
+    \item Pages counters
     \end{itemize}
     \end{block}
 \end{frame}
 
 \begin{frame}
-    \frametitle{SNMP: exemple d'une imprimante}
+    \frametitle{SNMP: a printer example}
 
     \begin{center}
     \includegraphics[width=11.7cm]{./pics/printer_graph.png}
     \end{center}
 \end{frame}
 
-\section{Tâche : Réveil sur le réseau}
+\section{Task : Wake On Lan}
 
 \begin{frame}
     \frametitle{Wake On Lan}
 
     \begin{block}{WoL}
     \begin{itemize}
-        \item Possiblité d'utiliser l'agent comme un proxy pour émettre des requêtes WoL.
+        \item Agent can be used as a proxy to send WoL packets.
     \end{itemize}
     \end{block}
 
 \end{frame}
 
 \begin{frame}
-    \frametitle{Wake On Lan : Exemple}
+    \frametitle{Wake On Lan : Example}
 
-    \begin{block}{Exemple}
+    \begin{block}{Example}
     \begin{itemize}
-    \item Un site distant
-    \item 50 ordinateurs
+    \item A remote network
+    \item 50 computers
     \end{itemize}
     \end{block}
 
 
-    \begin{block}{Ce qu'on peut faire}
+    \begin{block}{What FusionInventory can do}
     \begin{itemize}
-    \item Démarrer toutes les machines à 2h00 tous les soirs pour les mises à jour.
+    \item Wake up all computers at 2am for updates.
     \end{itemize}
     \end{block}
 
 \end{frame}
 
 
-\section{Tâche : La télédiffusion}
+\section{Task : software deployment}
 
 \begin{frame}
-    \frametitle{La télédiffusion (1/2)}
+    \frametitle{Software deployment (1/2)}
 
-    \begin{block}{Possibilité d'envoyer des actions à réaliser aux machines?}
+    \begin{block}{What can be done}
     \begin{itemize}
-        \item Pouvoir réaliser des actions sur les machines
-        \item Envoyer des fichiers
-        \item Réduire la bande passante grâce au “pair à pair”
+        \item Perform actions on the target computer
+        \item Send files
+        \item Consume less bandwith thanks to peer to peer
     \end{itemize}
-    Attention : ce n'est pas de la gestion de configuration.
+    Attention : FI is not a configuration management tool !
     \end{block}
 
 \WorkInProgress
 \end{frame}
 
 \begin{frame}
-    \frametitle{La télédiffusion (2/2)}
+    \frametitle{Software deployment (2/2)}
 
-    \begin{block}{Pourquoi un outil pour faire des télédiffusions vers les postes?}
+    \begin{block}{Why a new software deployment solution ?}
     \begin{itemize}
-        \item Utiliser l'interface existante de GLPI
-        \item La gestion des droits de GLPI (groupes/profiles/entités)
-        \item Multi-plateforme
+        \item Use existing GLPI UI
+        \item Use GLPI habilitations (groups/profils/entities)
+        \item Multi-plateform
     \end{itemize}
     \end{block}
 
 \WorkInProgress
 \end{frame}
 
-\section{Tâche : Inventaire vCenter/ESX/ESXi}
+\section{Task : Inventaire vCenter/ESX/ESXi}
 
 
 \begin{frame}
     \frametitle{vCenter/ESX/ESXi}
 
-    \begin{block}{Le problème}
-    Des boites noires : On ne peut pas installer d'agent dessus comme pour les autres hyperviseurs.
+    \begin{block}{The problem}
+    Black boxes : no way to install an agent on the host...
     \end{block}
 
 
@@ -616,12 +616,12 @@ There's also an Android agent available on Google Play.
 \begin{frame}
     \frametitle{vCenter/ESX/ESXi}
 
-    \begin{block}{La solution}
-    L'agent peut se connecter sur les équipements VMware via l'interface SOAP API:
+    \begin{block}{The solution}
+    The agent can use SOAP API to:
         \begin{itemize}
-                \item inventaire Hardware
-                \item lister les Machines Virtuelles
-                \item lister les ESX (dans les cas des vCenter)
+                \item inventory hardware
+                \item list virtual machines per host
+                \item inventory each ESX (in case of a vCenter)
         \end{itemize}
     \end{block}
 
@@ -644,18 +644,18 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{vCenter/ESX/ESXi: l'interface GLPI}
+    \frametitle{vCenter/ESX/ESXi: GLPI UI}
 
  \begin{columns}
  \begin{column}[T]{4cm}
     \includegraphics[height=4.0cm]{pics/esx-glpi.jpg}
  \end{column}
  \begin{column}[t]{6cm}
-    \begin{block}{Une interface existe dans GLPI}
+    \begin{block}{An interface in GLPI}
     \begin{itemize}
-         \item Définir l'authentification
-         \item Cibler un serveur vCenter/ESX/ESXi
-         \item Planifier les inventaires
+         \item Define credentials
+         \item Define vCenter/ESX/ESXi address
+         \item Plan inventories
     \end{itemize}
     \end{block}
  \end{column}
@@ -666,41 +666,41 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 
 \end{frame}
 
-\section{Tâche : L'inventaire}
+\section{Task : inventory}
 
 \begin{frame}
-    \begin{block}{Informations remontées (1/3)}
+    \begin{block}{Informations gathered (1/3)}
         \begin{itemize}
         \item BIOS
-        \item modules PCI
-        \item slots mémoires
+        \item PCI modules
+        \item memory slots
         \item CPUs
-        \item disques durs, lecteur, etc
-        \item carte mère
-        \item système d'exploitation
-        \item écrans
+        \item hard drivers, drives, etc
+        \item motherboard
+        \item operating system
+        \item screens
         \item ports
         \item slots
         \item partitions
-        \item logiciels
+        \item software
         \end{itemize}
     \end{block}
 \end{frame}
 
 \begin{frame}
-    \begin{block}{Informations remontées (2/3)}
+    \begin{block}{Informations gathered (2/3)}
         \begin{itemize}
-        \item utilisateurs connectés
-        \item cartes vidéos
-        \item machines virtuelles
-        \item carte sons
+        \item connected users
+        \item video cards
+        \item virtual machines
+        \item soundcards
         \item modems
-        \item variables d'environnement
-        \item équipements USB
-        \item configuration réseau
+        \item environment variables
+        \item USB devices
+        \item network configurations
         \item batteries
-        \item imprimantes
-        \item processus
+        \item printers
+        \item processes
         \item antivirus
         \item LVM
         \end{itemize}
@@ -708,21 +708,21 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \end{frame}
 
 \begin{frame}
-    \begin{block}{Informations remontées (3/3)}
-        Android: carte SIM, IMEI , etc
+    \begin{block}{Informations gathered (3/3)}
+        Android: Simcard, IMEI , etc
     \end{block}
 \end{frame}
 
-\section{La qualitaï!}
+\section{QA}
 
 \begin{frame}
-    \frametitle{Quelques métriques}
+    \frametitle{Some statistic}
 
-    \begin{block}{Aujourd'hui}
+    \begin{block}{Today}
         \begin{itemize}
-            \item 194 modules Perl
-            \item 21851 lignes
-            \item 938 tests unitaires
+            \item 194 Perl modules
+            \item 21851 lines
+            \item 938 unitary tests
         \end{itemize}
     \end{block}
 
@@ -730,91 +730,38 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 
 
 \begin{frame}
-    \frametitle{Quelques métriques}
+    \frametitle{Unitary tests}
 
-    \begin{block}{Aujourd'hui}
+    \begin{block}{What for ?}
         \begin{itemize}
-            \item 194 modules Perl
-            \item 21851 lignes
-            \item \bf{938 tests unitaires} !
-        \end{itemize}
-    \end{block}
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{test-unitaire}
-
-    \begin{block}{Pour ?}
-        \begin{itemize}
-            \item tester le parsing sur des OS qu'on a pas
-            \item vérifier le code Win32 depuis un autre OS \\
-            \small{jusqu'a WMI et la base de registre}
-            \item vérifier des choses pénibles \\
+            \item test parsing for OSes that we don't have
+            \item check Win32 code from another OS \\
+            \small{from WMI to registry}
+            \item check sensitive things \\
             \small{unicode, HTTPS, etc}
         \end{itemize}
     \end{block}
 
 \end{frame}
 
-\section{D'un point de vu développeur}
+\section{The developer point of view}
 
 \begin{frame}
-    \frametitle{Ce que FusionInventory peut apporter}
+    \frametitle{What FusionInventory can bring to you}
 
-    \begin{block}{Plusieurs scénarii}
+    \begin{block}{Several scenarii}
         \begin{itemize}
-            \item Utiliser l'inventaire dans votre application
-            \item Etendre la couverture de l'inventaire
-            \item Interface avec GLPI ou autres \\
-            \small{Uranos, bientôt OTRS, etc}
-            \item Créer des nouvelles tâches
+            \item Use inventory in your own application
+            \item Extend inventory with your own modules
+            \item Interface with GLPI or other \\
+            \small{Uranos, soon OTRS, etc}
+            \item Create new tasks
         \end{itemize}
     \end{block}
 
 \end{frame}
 
-\begin{frame}
-
-    \begin{block}{Utiliser l'inventaire dans votre application}
-    demo
-    \end{block}
-
-\end{frame}
-
-
-\begin{frame}
-
-    \begin{block}{Etendre la couverture de l'inventaire}
-    demo
-    \end{block}
-
-\end{frame}
-
-\begin{frame}
-
-    \begin{block}{Créer des nouvelles tâches}
-    Vous permet de récuperer facilement des objets dans le bon contexte :
-    \begin{itemize}
-      \item \$serveur
-      \item \$config
-      \item \$logger 
-    \end{itemize}
-    \end{block}
-
-\end{frame}
-
-\begin{frame}
-
-    \begin{block}{Interface avec GLPI ou autres}
-        \begin{itemize}
-            \item SOAP (GLPI et OTRS)
-        \end{itemize}
-    \end{block}
-
-\end{frame}
-
-\section{La suite}
+\section{Soon to come}
 
 \begin{frame}
     \frametitle{What else?}
@@ -826,19 +773,19 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \end{frame}
 
 \begin{frame}
-    \frametitle{Notre roadmap}
+    \frametitle{Our roadmap}
 
-    Prochaines étapes :
+    Next steps:
     \begin{itemize}
         \item FusionInventory Agent 2.3.x
-        \item \'{E}diteur de modèle SNMP XML
-        \item Intégration avec nut 
+        \item Tool to edit SNMP XML models
+        \item Nut integration
     \end{itemize}
 
-    Transition en cours :
+    Transition in progress:
     \begin{itemize}
         \item OCS/XML → REST/JSON
-        \small{prévue pour l'agent 3.0.0\\utilisée par OTRS}
+        \small{planned for agent 3.0.0\\already used by OTRS}
     \end{itemize}
 
 \end{frame}
