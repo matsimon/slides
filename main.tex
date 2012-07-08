@@ -28,7 +28,7 @@
 \setlength{\TPVertModule}{1mm}
 \newcommand{\WorkInProgress}{%
 \begin{textblock}{14}(120.0,75.7)
-\includegraphics[height=0.1cm]{./pics/logo_owf.png}
+\includegraphics[height=0.1cm]{./pics/rmll2011.jpg}
 \end{textblock}
   }
 
@@ -39,15 +39,15 @@
 \subject{Assets management with FusionInventory and GLPI}
 \keywords{Assets management, Inventory, FusionInventory, GLPI}
 
-\date{Juin 2012}
+\date{Juillet 2012}
 %\titlegraphic{GLPI}
 %subtitle{\includegraphics[width=1.2cm]{./pics/fusioninventory-logo.png}}
-\institute{\includegraphics[height=1.2cm]{./pics/mongueur.png}}
+\institute{\includegraphics[height=4.3cm]{./pics/rmll2011.jpg}}
 
 \titlegraphic{}
-\subtitle{Journées Perl}
-\institute{Strasbourg}
-\author{ Gonéri Le Bouder \texttt{<goneri@teclib.com>}}
+\subtitle{RMLL 2012}
+\institute{Genêve}
+\author{ Walid Nouh - Mathieu Simon}
 \logo{\includegraphics[height=0.7cm]{./pics/fusioninventory-logo.pdf}}
 
 \AtBeginSection[] % Do nothing for \section*
@@ -66,33 +66,46 @@
 
 
 \begin{frame}
-    \frametitle{A propos de moi}
+    \frametitle{About us}
 
 
-    \begin{block}{Gonéri Le Bouder}
+    \begin{block}{Walid Nouh}
         \begin{itemize}
-        \item Développeur FusionInventory
-        \item Développeur Debian
-        \item Mongueur Perl
-        \item Travaille chez TECLIB', Paris
+        \item FusionInventory contributor
+        \item GLPI contributor  
+        \item Work for TECLIB', Montpellier
         \end{itemize}
     \end{block}
 
 \end{frame}
 
-\section{Vue d'ensemble}
+\begin{frame}
+    \frametitle{About us}
+
+
+    \begin{block}{Mathieu Simon}
+        \begin{itemize}
+        \item FusionInventory contributor
+        \item 
+        \item Work for , Bern
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\section{Project overview}
 
 \begin{frame}
-    \frametitle{Les origines du logiciel}
+    \frametitle{From the beginning}
 
     \begin{description}
-      \item[2006] Création de l'agent
-      \item[2008] Début du serveur (le plugin GLPI, Tracker)
-      \item[2009] Intégration Agent/Serveur
-      \item[2010] Projet FusionInventory
-      \item[2010] Intégration avec Uranos
-      \item[2011] Intégration avec Rudder (cfengine)
-      \item[2012] Intégration avec OTRS
+      \item[2006] First unified inventory agent for Unix
+      \item[2008] First server implementation (Tracker, a plugin for GLPI)
+      \item[2009] Agent and server integration
+      \item[2010] FusionInventory project is born! 
+      \item[2010] Uranos integration
+      \item[2011] Rudder (cfengine) integration
+      \item[2012] OTRS integration
     \end{description}
 
 \end{frame}
@@ -100,21 +113,21 @@
 
 
 \begin{frame}
-    \frametitle{La structure du projet}
+    \frametitle{The project}
     %%-------------------------------------------------------------------
     %%\logo{\includegraphics[height=3.5cm]{./pics/glpi-doc.png}}
-    FusionInventory est un projet communautaire.
+    FusionInventory is a community driven project.
 
     \begin{itemize}
-        \item liste de diffusion active
-        \item IRC: \#FusionInventory sur FreeNode
-        \item Forge, dépôt Git, etc
+        \item active mailing list
+        \item IRC: \#FusionInventory on FreeNode
+        \item Forge, Git repositories, etc
     \end{itemize}
 \end{frame}
 
 
 \begin{frame}
-    \frametitle{Les contributeurs}
+    \frametitle{Contributors}
 
  \begin{columns}
  \begin{column}[T]{4cm}
@@ -122,28 +135,28 @@
  \end{column}
  \begin{column}[t]{5cm}
     \begin{itemize}
-    \item 4 développeurs réguliers
-    \item une communauté active
-    \item 2 entreprises parties prenantes
+    \item 4 active developers
+    \item an active community
+    \item 2 companies involved
     \end{itemize}
 
  \end{column}
 \end{columns}
 
     \pause
-    \bf{Nous aimons le sang chaud !}
+    \bf{We're looking for more contributors !}
 \end{frame}
 
 
 
 \begin{frame}
-    \frametitle{Un peu de vocabulaire}
+    \frametitle{Before starting}
 
-    \begin{block}{FusionInventory n'est pas directement un logiciel}
+    \begin{block}{FusionInventory is not a software}
     \begin{itemize}
-        \item Agent: un logiciel destiné aux machines du parc
-        \item Serveur: dialogue avec l'agent
-        \item Tâche: une action effectuée par un agent pour le serveur
+        \item Agent: a software to install on the computers
+        \item Server: handles communication with the agents
+        \item Task: is prepared by the server, executed by an agent
     \end{itemize}
     \end{block}
 
@@ -151,43 +164,43 @@
 
 
 \begin{frame}
-    \frametitle{Les serveurs aujourd'hui}
+    \frametitle{Available servers today}
 
-    \begin{block}{4 solutions aujourd'hui}
+    \begin{block}{4 solutions so far}
         \begin{itemize}
             \item FusionInventory for GLPI \\
             \url{http://www.FusionInventory.org}
             \item Uranos \\
             \url{http://uranos.sourceforge.net/}
-            \item Rudder de Normation \\
+            \item Rudder by Normation \\
             \url{http://www.normation.com/\#produits}
             \item OCS Inventory NG
-            \item Pulse 2 de Mandriva
+            \item Mandriva Pulse 2
 
         \end{itemize}
-        ... il est aussi possible de produire un inventaire XML (et bientôt JSON) en local.
+        ... it's also possible to perform local XML inventory (JSON soon to come).
     \end{block}
 
 \end{frame}
 
 \begin{frame}
-    \frametitle{Des intégrations sont en discussion avec}
+    \frametitle{In talk with}
 
     \begin{itemize}
     \item FusionDirectory
-    \item OTRS ITSM (développement pratiquement terminé)
+    \item OTRS ITSM (work already in progress)
     \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{pull / push}
 
-    \begin{block}{FusionInventory permet le "push" ou "pull"}
+    \begin{block}{FusionInventory enables "push" or "pull" mode}
     \begin{itemize}
-    \item \textbf{"pull": Agent $\Longrightarrow$ Serveur} \\
-    l'agent est à l'origine du dialogue.
-    \item \textbf{"push": Agent $\Longleftarrow$ Serveur} \\
-    le serveur commence le dialogue.
+    \item \textbf{"pull": Agent $\Longrightarrow$ Server} \\
+    the agent contacts the server.
+    \item \textbf{"push": Agent $\Longleftarrow$ Server} \\
+    the server initiate the contact.
     \end{itemize}
     \end{block}
 
@@ -197,15 +210,15 @@
     \frametitle{Agent: Installation}
 
 
-    \begin{block}{Plusieurs solutions}
+    \begin{block}{Many ways to do it}
         \begin{itemize}
             \item \textbf{distribution packages} \\
             \small{Debian, Fedora, EPEL, Ubuntu, Mageia, ...}
             \item \textbf{Windows installer} \\
             \small{GPO, psexec, ...}
-            \item \textbf{static prebuilt packages}, untar et lancer \\
+            \item \textbf{static prebuilt packages}, untar and run \\
             \small{62 differents system so far}
-            \item tarball et CPAN
+            \item tarball and CPAN
         \end{itemize}
     \end{block}
 \end{frame}
@@ -218,17 +231,17 @@
 \includegraphics[height=5.5cm]{pics/googleplay.png}
  \end{column}
  \begin{column}{0.65\textwidth}
-Sur Android, l'application est sur Google Play.
+There's also an Android agent available on Google Play.
  \end{column}
 \end{columns}
 
 \end{frame}
 
 
-\section{Agent : OS supportés}
+\section{Agent : target OS}
 
 \begin{frame}
-    \frametitle{Les systèmes d'exploitation supportés}
+    \frametitle{Supported operating systems}
 
     \begin{itemize}
         \item Linux
@@ -262,30 +275,30 @@ Sur Android, l'application est sur Google Play.
 \end{frame}
 
 \begin{frame}    
-    \begin{block}{Perl aide beaucoup}
+    \begin{block}{Perl helps :)}
         \begin{itemize}
-            \item Peu de différences fondamentales entre les UNIX like
-            \item Il reste Win32
+            \item Few differences between Unices
+            \item Also Win32...
         \end{itemize}
     \end{block}
 \end{frame}
 
-\section{Tâche : Découverte du réseau}
+\section{Task: Network discovery}
 
 \begin{frame}
-    \frametitle{Découverte du réseau}
+    \frametitle{Network discovery}
 
-    \begin{block}{Une remontée rapide des éléments actifs}
+    \begin{block}{Quickly collects all connected devices}
     \begin{itemize}
       \item NMAP 
       \item NetBios
-      \item requête SNMP
+      \item SNMP queries
     \end{itemize}
     \end{block}
 
 \end{frame}
 
-\section{Tâche : Inventaire réseau}
+\section{Task: network inventory}
 %\begin{frame}
 %    \frametitle{Remote SNMP inventory}
 %
@@ -306,7 +319,7 @@ Sur Android, l'application est sur Google Play.
 %\end{frame}
 
 \begin{frame}
-    \frametitle{... INTERM\`{E}DE ...}
+    \frametitle{... INTERLUDE ...}
 
 %   \begin{columns}
 %   \begin{column}{0.35\textwidth}
@@ -328,41 +341,41 @@ Sur Android, l'application est sur Google Play.
 %    \includegraphics[height=4.0cm]{pics/napoleon.jpg}
 %    \end{center}
 
-    \begin{block}{L'origine de SNMP}
+    \begin{block}{SNMP origin}
     \begin{itemize}
-    \item Un standard \\
-    \small{Première RFC: 1988}
-    \item Créé pour superviser les équipements
-    \item 3 versions différentes 1, 2c, 3 (Chiffrement)
-    \item OID: L'adresse d'une information
-    \item MIB: Un catalogue d'OID
+    \item A standard \\
+    \small{First RFC in 1988}
+    \item Designed to monitor equipments
+    \item 3 versions 1, 2c, 3 (Cyphering)
+    \item OID: Information location
+    \item MIB: A collection of OIDs
     \end{itemize}
     \end{block}
 \end{frame}
 
 \begin{frame}
-    \frametitle{SNMP: Pour faire quoi?}
+    \frametitle{SNMP: what for in FusionInventory?}
 
-    \begin{block}{Quelle utilisation de SNMP?}
+    \begin{block}{How do we use SNMP?}
     \begin{itemize}
-    \item Identifier les équipements distants (commutateurs, imprimantes, ...)
-    \item Faire un inventaire
-    \item Collecter les informations importantes
+    \item Identify remote devices (network equipments, printers, ...)
+    \item Perform a remote inventory
+    \item Get the most important informations
     \end{itemize}
     \end{block}
 \end{frame}
 
 \begin{frame}
-    \frametitle{SNMP: Le cauchemar}
+    \frametitle{SNMP: a nightmare}
 
-    \begin{block}{“Vous pouvez supporter mon matériel, j'ai la MIB !”}
+    \begin{block}{“Please support my hardware, here is the MIB!”}
 
     \pause
     \begin{itemize}
-    \item En règle générale, elles sont dures à trouver
-    \item Rarement libres ou redistribuables
-    \item Des informations importantes sont souvant absentes
-    \item Le pire ! Elles sont bien souvent fausses !
+    \item Might be hard to find
+    \item Often no free or not redistributable 
+    \item Important informations might be missing
+    \item But worth, the may be wrong !
     \end{itemize}
     \end{block}
 
@@ -370,14 +383,14 @@ Sur Android, l'application est sur Google Play.
 %    \end{block}
 \end{frame}
 \begin{frame}
-    \frametitle{SNMP: Un exemple}
+    \frametitle{SNMP: an example}
 
  \begin{columns}
  \begin{column}{0.35\textwidth}
          \includegraphics[height=7.5cm]{./pics/cisco.jpg}
  \end{column}
  \begin{column}{0.65\textwidth}
-    \begin{block}{Exemple: Cisco 6500 firmware}
+    \begin{block}{Example: Cisco 6500 firmware}
     12.2(33)SXI\textbf{2a} (02-Sep-09 01:00)
     \begin{itemize}
     \item Serial OID: .1.3.6.1.2.1.47.1.1.1.1.11.\textbf{1}
@@ -396,7 +409,7 @@ Sur Android, l'application est sur Google Play.
 \end{frame}
 
 \begin{frame}
-    \frametitle{SNMP: aïe}
+    \frametitle{SNMP: outch}
 
  \begin{columns}
  \begin{column}{0.35\textwidth}
@@ -411,15 +424,15 @@ Sur Android, l'application est sur Google Play.
 
 
 \begin{frame}
-    \frametitle{SNMP: Comment être fiable?}
+    \frametitle{SNMP: how to be reliable ?}
 
-    \begin{block}{On prépare nos propres “MIB”}
+    \begin{block}{We prepared our own “MIB”}
     \begin{itemize}
-    \item Un travail manuel pour chaque équipement
-    \item Des fichiers XML
-    \item Définition des relations entre les OID et les infos \\
-        \small{ex: numéro de série → OID 1.2.4.34.53...}
-    \item Support des OID dynamiques
+    \item Manual work for each equipment
+    \item stored in an XML file
+    \item Defines relations between an OID and an information \\
+        \small{ex: serial number → OID 1.2.4.34.53...}
+    \item Supports dynamics OIDs
     \end{itemize}
     \end{block}
 
@@ -427,7 +440,7 @@ Sur Android, l'application est sur Google Play.
 \end{frame}
 
 \begin{frame}
-    \frametitle{... FIN DE L'INTERM\`{E}DE ...}
+    \frametitle{... END OF INTERLUDE ...}
 
     \includegraphics[height=7.5cm]{./pics/montagne.jpg}
 
