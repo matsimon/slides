@@ -170,7 +170,7 @@
     \item \textbf{"pull": Agent $\Longrightarrow$ Server} \\
     the agent contacts the server.
     \item \textbf{"push": Agent $\Longleftarrow$ Server} \\
-    the server initiate the contact.
+    the server initiates the contact.
     \end{itemize}
     \end{block}
 
@@ -192,13 +192,13 @@
             \item Mandriva Pulse 2
 
         \end{itemize}
-        ... it's also possible to perform local XML inventory (JSON soon to come).
+        ... it's also possible to perform local XML inventory (soon: switch to JSON).
     \end{block}
 
 \end{frame}
 
 \begin{frame}
-    \frametitle{In talk with}
+    \frametitle{In contact with developers of}
 
     \begin{itemize}
     \item FusionDirectory
@@ -214,14 +214,14 @@
 
     \begin{itemize}
     \item We're also members of the GLPI community
-    \item Do not reinvent the wheel
+    \item Motivation: Don't reinvent the wheel!
     \item Avoid having a second database and synchronization
-    \item Focus on what's important for us
+    \item Focus on what's important to us - let GLPI do the rest
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{GLPI (1/4)}
+    \frametitle{GLPI: about (1/4)}
 
     \begin{itemize}
     \item Powerfull web based asset management software
@@ -247,7 +247,7 @@
     \frametitle{GLPI: Service Desk (3/4)}
 
     \begin{itemize}
-    \item ITIL compatible ServiceDesk
+    \item ITIL compatible Servicedesk
     \item Incident management
     \item Problem management
     \item Statistics
@@ -264,7 +264,7 @@
     \end{itemize}
 \end{frame}
 
-\section{Agent : installation and OS support}
+\section{Agent: installation and OS support}
 
 \begin{frame}
     \frametitle{Agent: Installation}
@@ -272,13 +272,13 @@
 
     \begin{block}{Many ways to do it}
         \begin{itemize}
-            \item \textbf{distribution packages} \\
+            \item \textbf{Distribution packages} \\
             \small{Debian, Fedora, EPEL, Ubuntu, Mageia, ...}
             \item \textbf{Windows installer} \\
             \small{GPO, psexec, ...}
-            \item \textbf{static prebuilt packages}, untar and run \\
+            \item \textbf{Static prebuilt packages}: untar and run \\
             \small{62 differents system so far}
-            \item tarball and CPAN
+            \item Tarball and CPAN
         \end{itemize}
     \end{block}
 \end{frame}
@@ -306,6 +306,7 @@ There's also an Android agent available on Google Play.
         \item Windows
         \item MacOSX
         \item BSD
+        \item illumos
         \item AIX
         \item HP-UX
         \item Solaris
@@ -318,6 +319,7 @@ There's also an Android agent available on Google Play.
 \includegraphics[height=0.5cm]{pics/logos/hp-ux.png}
 \includegraphics[height=0.5cm]{pics/logos/netbsd.png}
 \includegraphics[height=0.5cm]{pics/logos/openbsd.png}
+\includegraphics[height=0.5cm]{pics/logos/illumos.png}
 \includegraphics[height=0.5cm]{pics/logos/solaris.jpg}
 \includegraphics[height=0.5cm]{pics/logos/centos.jpg}
 \includegraphics[height=0.5cm]{pics/logos/linux.png}
@@ -337,10 +339,10 @@ There's also an Android agent available on Google Play.
 \begin{frame}
     \frametitle{Network discovery}
 
-    \begin{block}{Quickly collects all connected devices}
+    \begin{block}{Quickly detect and collect all connected devices}
     \begin{itemize}
-      \item NMAP 
-      \item NetBios
+      \item nmap
+      \item NetBIOS
       \item SNMP queries
     \end{itemize}
     \end{block}
@@ -585,7 +587,7 @@ There's also an Android agent available on Google Play.
     \end{center}
 \end{frame}
 
-\section{Task : Wake On Lan}
+\section{Task: Wake On Lan}
 
 \begin{frame}
     \frametitle{Wake On Lan}
@@ -599,7 +601,7 @@ There's also an Android agent available on Google Play.
 \end{frame}
 
 \begin{frame}
-    \frametitle{Wake On Lan : Example}
+    \frametitle{Wake On Lan: Example}
 
     \begin{block}{Example}
     \begin{itemize}
@@ -611,14 +613,14 @@ There's also an Android agent available on Google Play.
 
     \begin{block}{What FusionInventory can do}
     \begin{itemize}
-    \item Wake up all computers at 2am for updates.
+    \item Wake up all computers at 2 am for updates.
     \end{itemize}
     \end{block}
 
 \end{frame}
 
 
-\section{Task : software deployment}
+\section{Task: software deployment}
 
 \begin{frame}
     \frametitle{Software deployment (1/2)}
@@ -629,7 +631,7 @@ There's also an Android agent available on Google Play.
         \item Send files
         \item Consume less bandwith thanks to peer to peer
     \end{itemize}
-    Attention : FI is not a configuration management tool !
+    Attention: FI is not a configuration management tool !
     \end{block}
 
 \WorkInProgress
@@ -649,35 +651,35 @@ There's also an Android agent available on Google Play.
 \WorkInProgress
 \end{frame}
 
-\section{Task : vCenter/ESX/ESXi inventory}
+\section{Task: vCenter / ESX / ESXi inventory}
 
 
 \begin{frame}
-    \frametitle{vCenter/ESX/ESXi}
+    \frametitle{vCenter / ESX / ESXi}
 
     \begin{block}{The problem}
-    Black boxes : no way to install an agent on the host...
+    Black boxes: no way to install an agent on the host...
     \end{block}
 
 
 \end{frame}
 
 \begin{frame}
-    \frametitle{vCenter/ESX/ESXi}
+    \frametitle{vCenter / ESX / ESXi}
 
     \begin{block}{The solution}
     The agent can use SOAP API to:
         \begin{itemize}
-                \item inventory hardware
+                \item inventorize hardware
                 \item list virtual machines per host
-                \item inventory each ESX (in case of a vCenter)
+                \item inventorize each ESX box (in case of a vCenter)
         \end{itemize}
     \end{block}
 
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{vCenter/ESX/ESXi: the command line tool}
+    \frametitle{vCenter / ESX / ESXi: the command line tool}
 
 \begin{lstlisting}
 fusioninventory-esx --host vcenter --user foo \ 
@@ -693,7 +695,7 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{vCenter/ESX/ESXi: GLPI UI}
+    \frametitle{vCenter / ESX / ESXi: GLPI UI}
 
  \begin{columns}
  \begin{column}[T]{4cm}
@@ -715,7 +717,7 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 
 \end{frame}
 
-\section{Task : inventory}
+\section{Task: inventory}
 
 \begin{frame}
     \begin{block}{Informations gathered (1/3)}
@@ -765,13 +767,13 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \section{QA}
 
 \begin{frame}
-    \frametitle{Some statistic}
+    \frametitle{Some statistics}
 
     \begin{block}{Today}
         \begin{itemize}
             \item 194 Perl modules
-            \item 21851 lines
-            \item 938 unitary tests
+            \item 21851 lines of code
+            \item 938 unit tests
         \end{itemize}
     \end{block}
 
@@ -779,9 +781,9 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 
 
 \begin{frame}
-    \frametitle{Unitary tests}
+    \frametitle{Unit tests}
 
-    \begin{block}{What for ?}
+    \begin{block}{What for?}
         \begin{itemize}
             \item test parsing for OSes that we don't have
             \item check Win32 code from another OS \\
@@ -798,7 +800,7 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \begin{frame}
     \frametitle{What FusionInventory can bring to you}
 
-    \begin{block}{Several scenarii}
+    \begin{block}{Several scenarios}
         \begin{itemize}
             \item Use inventory in your own application
             \item Extend inventory with your own modules
@@ -828,7 +830,25 @@ fusioninventory-injector -v --file /tmp/*.ocs \
     \begin{itemize}
         \item FusionInventory Agent 2.3.x
         \item Tool to edit SNMP XML models
-        \item Nut integration
+        \item NUT integration
+    \end{itemize}
+
+    Transition in progress:
+    \begin{itemize}
+        \item OCS/XML → REST/JSON
+        \small{planned for agent 3.0.0\\already used by OTRS}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Our roadmap}
+
+    Next steps:
+    \begin{itemize}
+        \item FusionInventory Agent 2.3.x
+        \item Tool to edit SNMP XML models
+        \item NUT integration
     \end{itemize}
 
     Transition in progress:
@@ -840,19 +860,86 @@ fusioninventory-injector -v --file /tmp/*.ocs \
 \end{frame}
 
 
-\section{Questions}
+\section{Real use experience}
 
 \begin{frame}
-    \frametitle{Questions?}
+    \frametitle{Real use experience}
 
-%    \bf{Questions?}
-    \begin{center}
+    Why use FusionInventory and GLPI (1/2):
+    \begin{itemize}
+	\item 2 schools were merged and had grown: 400 each →  1000 students today
+	\item IT departments merged and quickly grown
+	\item 2008: Regular financial audit - including IT assets.
+    \end{itemize}
 
-    \includegraphics[height=5cm]{./pics/question.pdf}
+    We had to get a an inventory without tons of man-hours: QUICKLY.
+ 
+\end{frame}
 
-    \end{center}
-%    \includegraphics[height=7.5cm]{./pics/ask.jpg}
+\begin{frame}
+    \frametitle{Real use experience}
+    Why use FusionInventory and GLPI (2/2):
+    \begin{itemize}
+	\item Proprietary solution highly cost intensive - while restricted in features
+	\item Experience with superiors: If it's OSS, it has to work
+	\item OCS was able to get all our computers' data
+	\item GLPI had the nice UI + held all other asset data
+    \end{itemize}
+\end{frame}
 
+\begin{frame}
+    \frametitle{Real use experience}
+    OCSinventory-ng side:
+    \begin{itemize}
+	\item OCS lagged behind with Windows compatibility, regular GLPI sync problems
+    \end{itemize}
+
+    Why FusionInventory:
+    \begin{itemize}
+	\item Client: Agent easier to deploy 3 platforms
+	\item Server: PHP + Perl →  PHP
+	\item Deployment: 1 internal git tree of GLPI + plugins
+	\item IT staff: 2 UIs →  1 UI
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Real use experience}
+    OCS Agent: the dull duck - sorry guys...
+    \begin{itemize}
+	\item OCS lagged behind with Windows compatibility, regular sync problems
+    \end{itemize}
+
+    Why FusionInventory:
+    \begin{itemize}
+	\item Client: Agent easier to deploy 3 platforms
+	\item Server: PHP + Perl →  PHP
+	\item Deployment: 1 internal git tree of GLPI + plugins
+	\item IT staff: 2 UIs →  1 UI
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The good, the bad ...}
+    There are also downsides - nothing is perfect:
+    \begin{itemize}
+	\item Documentation mostly fr-FR focused
+	\item l10n: de-DE had quite some "frenchisms"
+	\item FI for GLPI lags behind major GLPI releases
+	\item Ticket notifications require lots of local tuning (yet)
+    \end{itemize}
+    ... no: There is no true ugly thing I found
+\end{frame}
+
+\begin{frame}
+    \frametitle{Finally}
+    \begin{itemize}
+	\item GLPI + FI automated lots of taks no sysadmin wants to do manually with +300 computers
+	\item Auditability →  Made superiors happy
+	\item OSS proved to work: Swiss-german education - normally not that easy
+	\item Got in touch with nice community
+	\item Have to polish my french regularly ;-)
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
