@@ -1,7 +1,7 @@
 = build =
 
 To build these slides on Debian, you need these packages:
-  texlive-latex-recommended latex-beamer texlive-latex-extra
+  texlive-latex-recommended latex-beamer texlive-latex-extra lmodern
 
 To start the build, just use "make".
 
