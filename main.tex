@@ -34,7 +34,7 @@
 
 %\setbeamercolor{background canvas}{bg=\includegraphics[width=\textwidth]{./pics/wolf.png}}
 
-\title{FusionInventory}
+\title{The FusionInventory project}
 \author{{FusionInventory.org}}
 \subject{Assets management with FusionInventory and GLPI}
 \keywords{Assets management, Inventory, FusionInventory, GLPI}
@@ -45,8 +45,8 @@
 \institute{\includegraphics[height=4.3cm]{./pics/rmll2011.jpg}}
 
 \titlegraphic{}
-\subtitle{RMLL 2012}
-\institute{Genêve}
+\subtitle{RMLL / LSM 2012}
+\institute{Genève}
 \author{ Walid Nouh - Mathieu Simon}
 \logo{\includegraphics[height=0.7cm]{./pics/fusioninventory-logo.pdf}}
 
@@ -96,7 +96,7 @@
 \section{Project overview}
 
 \begin{frame}
-    \frametitle{From the beginning}
+    \frametitle{FusionInventory timeline}
 
     \begin{description}
       \item[2006] First unified inventory agent for Unix
@@ -116,10 +116,10 @@
     \frametitle{The project}
     %%-------------------------------------------------------------------
     %%\logo{\includegraphics[height=3.5cm]{./pics/glpi-doc.png}}
-    FusionInventory is a community driven project.
+    FusionInventory is a community driven project
 
     \begin{itemize}
-        \item active mailing list
+        \item Active mailing list
         \item IRC: \#FusionInventory on FreeNode
         \item Forge, Git repositories, etc
     \end{itemize}
@@ -136,7 +136,7 @@
  \begin{column}[t]{5cm}
     \begin{itemize}
     \item 4 active developers
-    \item an active community
+    \item An active community
     \item 2 companies involved
     \end{itemize}
 
@@ -157,6 +157,20 @@
         \item Agent: a software to install on the computers
         \item Server: handles communication with the agents
         \item Task: is prepared by the server, executed by an agent
+    \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{pull / push}
+
+    \begin{block}{FusionInventory enables "push" or "pull" mode}
+    \begin{itemize}
+    \item \textbf{"pull": Agent $\Longrightarrow$ Server} \\
+    the agent contacts the server.
+    \item \textbf{"push": Agent $\Longleftarrow$ Server} \\
+    the server initiate the contact.
     \end{itemize}
     \end{block}
 
@@ -192,19 +206,65 @@
     \end{itemize}
 \end{frame}
 
+
+\section{GLPI and FusionInventory}
+
 \begin{frame}
-    \frametitle{pull / push}
+    \frametitle{Why GLPI for the server?}
 
-    \begin{block}{FusionInventory enables "push" or "pull" mode}
     \begin{itemize}
-    \item \textbf{"pull": Agent $\Longrightarrow$ Server} \\
-    the agent contacts the server.
-    \item \textbf{"push": Agent $\Longleftarrow$ Server} \\
-    the server initiate the contact.
+    \item We're also members of the GLPI community
+    \item Do not reinvent the wheel
+    \item Avoid having a second database and synchronization
+    \item Focus on what's important for us
     \end{itemize}
-    \end{block}
-
 \end{frame}
+
+\begin{frame}
+    \frametitle{GLPI (1/4)}
+
+    \begin{itemize}
+    \item Powerfull web based asset management software
+    \item Project started in 2003
+    \item Uses MySQL / PHP
+    \item Provides a complete plugin API
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{GLPI: inventory (2/4)}
+
+    \begin{itemize}
+    \item Computers, screens, printers, etc
+    \item Network devices, phones
+    \item Financial informations
+    \item Warranties
+    \item Licenses
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{GLPI: Service Desk (3/4)}
+
+    \begin{itemize}
+    \item ITIL compatible ServiceDesk
+    \item Incident management
+    \item Problem management
+    \item Statistics
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{GLPI (4/4)}
+
+    \begin{itemize}
+    \item Reports and statistics
+    \item Powerful authorization system (LDAP, IMAP/POP, etc)
+    \item WebSSO (CAS, LemonLDAP, etc)
+    \end{itemize}
+\end{frame}
+
+\section{Agent : installation and OS support}
 
 \begin{frame}
     \frametitle{Agent: Installation}
@@ -238,8 +298,6 @@ There's also an Android agent available on Google Play.
 \end{frame}
 
 
-\section{Agent : target OS}
-
 \begin{frame}
     \frametitle{Supported operating systems}
 
@@ -272,15 +330,6 @@ There's also an Android agent available on Google Play.
 \includegraphics[height=0.5cm]{pics/logos/dragonflybsd.png}
 \includegraphics[height=0.5cm]{pics/logos/mageia.png}
 
-\end{frame}
-
-\begin{frame}    
-    \begin{block}{Perl helps :)}
-        \begin{itemize}
-            \item Few differences between Unices
-            \item Also Win32...
-        \end{itemize}
-    \end{block}
 \end{frame}
 
 \section{Task: Network discovery}
@@ -375,7 +424,7 @@ There's also an Android agent available on Google Play.
     \item Might be hard to find
     \item Often no free or not redistributable 
     \item Important informations might be missing
-    \item But worth, the may be wrong !
+    \item But worth, they may be wrong !
     \end{itemize}
     \end{block}
 
@@ -593,14 +642,14 @@ There's also an Android agent available on Google Play.
     \begin{itemize}
         \item Use existing GLPI UI
         \item Use GLPI habilitations (groups/profils/entities)
-        \item Multi-plateform
+        \item Multi-platform
     \end{itemize}
     \end{block}
 
 \WorkInProgress
 \end{frame}
 
-\section{Task : Inventaire vCenter/ESX/ESXi}
+\section{Task : vCenter/ESX/ESXi inventory}
 
 
 \begin{frame}
@@ -628,14 +677,14 @@ There's also an Android agent available on Google Play.
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{vCenter/ESX/ESXi: en ligne de commande}
+    \frametitle{vCenter/ESX/ESXi: the command line tool}
 
 \begin{lstlisting}
 fusioninventory-esx --host vcenter --user foo \ 
   --password bar --directory /tmp
 \end{lstlisting}
 
-Il ne reste plus qu'a pousser les inventaires :
+Send inventories to the server :
 \begin{lstlisting}
 fusioninventory-injector -v --file /tmp/*.ocs \ 
   -u https://server/plugins/fusioninventory/
